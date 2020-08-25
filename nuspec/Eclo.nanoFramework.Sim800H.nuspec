@@ -42,6 +42,6 @@ Includes support for: &#10;
     <file src="SIM800H\bin\Release\Eclo.nanoFramework.SIM800H.pdbx" target="lib\Eclo.nanoFramework.SIM800H.pdbx" />
     <file src="SIM800H\bin\Release\Eclo.nanoFramework.SIM800H.pe" target="lib\Eclo.nanoFramework.SIM800H.pe" />
     <file src="SIM800H\bin\Release\Eclo.nanoFramework.SIM800H.xml" target="lib\Eclo.nanoFramework.SIM800H.xml" />
-    <file src="eclo-solutions-icon.png" target="images\" />
+    <file src="nuspec\eclo-solutions-icon.png" target="images\" />
   </files>
 </package>

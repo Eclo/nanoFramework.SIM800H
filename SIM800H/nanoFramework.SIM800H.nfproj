@@ -135,7 +135,8 @@
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <Import Project="E:\Github\Babel.Obfuscator\MSBuild\Babel.Build.targets" Condition=" '$(Configuration)' == 'Release' AND '$(SYSTEM_TEAMPROJECTID)' == '' " />
-  <Import Project="E:\Github\Babel.Obfuscator\MSBuild\Babel.Build.targets" Condition=" '$(Configuration)' == 'Release' AND '$(SYSTEM_TEAMPROJECTID)' != '' " />
+  <!-- The path to this targets file needs to be hardcoded to work in Azure Pipelines -->
+  <Import Project="D:\a\1\s\Babel.Obfuscator\MSBuild\Babel.Build.targets" Condition=" '$(Configuration)' == 'Release' AND '$(SYSTEM_TEAMPROJECTID)' != '' " />
   <ProjectExtensions>
     <ProjectCapabilities>
       <ProjectConfigurationsDeclaredAsItems />

@@ -6,14 +6,96 @@
 trigger:
 - master
 
+
+# add nf-tools repo to resources (for Azure Pipelines templates)
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: nanoframework/nf-tools
+      endpoint: 'nanoframework-nanoFramework.SIM800H'
+
+# need to build on VS2017 until the VS2019 issue with RESX is available
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'VS2017-Win2016'
+
+variables:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+
+- checkout: self
+  fetchDepth: 1
+
+- checkout: git://InternalFeed/Babel.Obfuscator
+  fetchDepth: 1
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    git config --global core.autocrlf true
+  displayName: Setup git identity
+
+- task: NuGetToolInstaller@0
+  displayName: 'Install specifc version of NuGet'
+  inputs:
+    versionSpec: '5.4.0'
+
+- task: NuGetCommand@2
+  condition: succeeded()
+  displayName: NuGet restore
+  inputs:
+    restoreSolution: '$(solution)'
+    feedsToUse: select
+    includeNuGetOrg: true
+
+- task: InstallnFBuildComponents@1
+  condition: ne( variables['StartReleaseCandidate'], true )
+  displayName: Install nanoFramework MSBuild components
+
+- task: VSBuild@1
+  condition: ne( variables['StartReleaseCandidate'], true )
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    msbuildArgs: '/p:PublicRelease=true'
+    configuration: '$(buildConfiguration)'
+
+- task: NuGetCommand@2
+  condition: succeeded()
+  displayName: Pack NuGet with class library
+  inputs:
+    command: 'custom' 
+    arguments: 'pack $(Build.SourcesDirectory)\$(System.TeamProject)\nuspec\Eclo.nanoFramework.Sim800H.nuspec -Version 1.0.2.1 -BasePath $(Build.SourcesDirectory)\$(System.TeamProject)'
+
+- task: CopyFiles@1
+  condition: succeeded()
+  displayName: Collecting deployable artifacts
+  inputs:
+    sourceFolder: $(Build.SourcesDirectory)
+    Contents: |
+      **\Eclo.nanoFramework.Sim800H*.nupkg
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true
+
+# publish artifacts (only possible if this is not a PR originated on a fork)
+- task: PublishBuildArtifacts@1
+  condition: and( succeeded(), ne(variables['system.pullrequest.isfork'], true) )
+  displayName: Publish deployables artifacts
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: deployables
+    ArtifactType: Container
+
+# # push NuGet class lib package to NuGet (always happens except on PR builds)
+# - task: NuGetCommand@2
+#   condition: and( succeeded(), ne(variables['Build.Reason'], 'PullRequest') )
+#   continueOnError: true
+#   displayName: Push NuGet packages to NuGet
+#   inputs:
+#     command: push
+#     nuGetFeedType: external
+#     allowPackageConflicts: true
+#     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+#     publishFeedCredentials: 'nuget-$(System.TeamProject)'
