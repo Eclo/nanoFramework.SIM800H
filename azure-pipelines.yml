@@ -47,7 +47,8 @@ steps:
   displayName: NuGet restore
   inputs:
     restoreSolution: '$(solution)'
-    feedsToUse: select
+    feedsToUse: config
+    nugetConfigPath: 'NuGet.config'
     includeNuGetOrg: true
 
 - task: InstallnFBuildComponents@1
