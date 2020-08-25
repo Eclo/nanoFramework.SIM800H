@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		nuspec\eclo-solutions-icon.png = nuspec\eclo-solutions-icon.png
 		nuspec\Eclo.nanoFramework.Sim800H.nuspec = nuspec\Eclo.nanoFramework.Sim800H.nuspec
+		NuGet.Config = NuGet.Config
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -62,38 +63,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF138A95-E468-4116-97B9-AE4DF881665B}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://eclo.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Tests\\Features\\Features.nfproj
-		SccProjectTopLevelParentUniqueName1 = nanoFramework.SIM800H.sln
-		SccProjectName1 = Tests/Features
-		SccLocalPath1 = Tests\\Features
-		SccProjectUniqueName2 = Tests\\HTTP\u0020Requests\\HTTP\u0020Requests.nfproj
-		SccProjectTopLevelParentUniqueName2 = nanoFramework.SIM800H.sln
-		SccProjectName2 = Tests/HTTP\u0020Requests
-		SccLocalPath2 = Tests\\HTTP\u0020Requests
-		SccProjectUniqueName3 = Tests\\MMS\u0020Send\u0020Sync\\MMS\u0020Send\u0020Sync.nfproj
-		SccProjectTopLevelParentUniqueName3 = nanoFramework.SIM800H.sln
-		SccProjectName3 = Tests/MMS\u0020Send\u0020Sync
-		SccLocalPath3 = Tests\\MMS\u0020Send\u0020Sync
-		SccProjectUniqueName4 = Tests\\Network\u0020Location\u0020and\u0020Time\\Network\u0020Location\u0020and\u0020Time.nfproj
-		SccProjectTopLevelParentUniqueName4 = nanoFramework.SIM800H.sln
-		SccProjectName4 = Tests/Network\u0020Location\u0020and\u0020Time
-		SccLocalPath4 = Tests\\Network\u0020Location\u0020and\u0020Time
-		SccProjectUniqueName5 = Tests\\SMS\u0020batch\u0020sending\\SMS\u0020Batch\u0020Sending.nfproj
-		SccProjectTopLevelParentUniqueName5 = nanoFramework.SIM800H.sln
-		SccProjectName5 = Tests/SMS\u0020batch\u0020sending
-		SccLocalPath5 = Tests\\SMS\u0020batch\u0020sending
-		SccProjectUniqueName6 = Tests\\SMS\u0020Receive\\SMS\u0020Receive.nfproj
-		SccProjectTopLevelParentUniqueName6 = nanoFramework.SIM800H.sln
-		SccProjectName6 = Tests/SMS\u0020Receive
-		SccLocalPath6 = Tests\\SMS\u0020Receive
-		SccProjectUniqueName7 = SIM800H\\nanoFramework.SIM800H.nfproj
-		SccProjectName7 = SIM800H
-		SccLocalPath7 = SIM800H
 	EndGlobalSection
 EndGlobal

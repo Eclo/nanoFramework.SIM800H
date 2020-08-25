@@ -47,8 +47,8 @@ steps:
   displayName: NuGet restore
   inputs:
     restoreSolution: '$(solution)'
-    feedsToUse: select
-    includeNuGetOrg: true
+    feedsToUse: config
+    nugetConfigPath: '$(System.TeamProject)\NuGet.config'
 
 - task: InstallnFBuildComponents@1
   condition: ne( variables['StartReleaseCandidate'], true )
