@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <NanoFrameworkProjectSystemPath>$(MSBuildToolsPath)..\..\..\nanoFramework\v1.0\</NanoFrameworkProjectSystemPath>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{11A8DD76-328B-46DF-9F39-F559912D0360};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>dd3c3335-bd8e-46da-b173-23c14e3bfb7b</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Eclo.nanoFramework.SIM800H</RootNamespace>
+    <AssemblyName>Eclo.nanoFramework.SIM800H</AssemblyName>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+    <DocumentationFile>bin\$(Configuration)\Eclo.nanoFramework.SIM800H.xml</DocumentationFile>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
+  <ItemGroup>
+    <Compile Include="..\..\Eclo.nF.Extensions\Eclo.nF.SerialDeviceExtensions.cs" Link="Eclo.nF.Extensions\Eclo.nF.SerialDeviceExtensions.cs" />
+    <Compile Include="AccessPointConfiguration.cs" />
+    <Compile Include="AtCommandResult.cs" />
+    <Compile Include="BearerProfile.cs" />
+    <Compile Include="ByteBuffer.cs" />
+    <Compile Include="DeviceAsyncResult.cs" />
+    <Compile Include="DeviceExtensions.cs" />
+    <Compile Include="FileStorage\FileStorage.cs" />
+    <Compile Include="Gprs\ConnectGprsAsyncResult.cs" />
+    <Compile Include="Gprs\ConnectGprsResult.cs" />
+    <Compile Include="Gprs\ConnectionState.cs" />
+    <Compile Include="Gprs\GprsProvider.cs" />
+    <Compile Include="Gprs\GprsSocket.cs" />
+    <Compile Include="Gprs\OpenBearerAsyncResult.cs" />
+    <Compile Include="Gprs\OpenBearerResult.cs" />
+    <Compile Include="Gprs\ProtocolType.cs" />
+    <Compile Include="Gprs\SocketError.cs" />
+    <Compile Include="Gprs\SocketException.cs" />
+    <Compile Include="Http\HttpAction.cs" />
+    <Compile Include="Http\HttpActionResult.cs" />
+    <Compile Include="Http\HttpByteBuffer.cs" />
+    <Compile Include="Http\HttpClient.cs" />
+    <Compile Include="Http\HttpCurrentStatus.cs" />
+    <Compile Include="Http\HttpKnownHeaderNames.cs" />
+    <Compile Include="Http\HttpParamTag.cs" />
+    <Compile Include="Http\HttpStatus.cs" />
+    <Compile Include="Http\HttpStatusCode.cs" />
+    <Compile Include="Http\HttpWebRequest.cs" />
+    <Compile Include="Http\HttpWebRequestAsyncResult.cs" />
+    <Compile Include="Http\HttpWebResponse.cs" />
+    <Compile Include="Http\IWebRequestCreate.cs" />
+    <Compile Include="Http\Uri.cs" />
+    <Compile Include="Http\WebHeaderCollection.cs" />
+    <Compile Include="Http\WebRequest.cs" />
+    <Compile Include="LocationAndTime.cs" />
+    <Compile Include="MMS\MmsClient.cs" />
+    <Compile Include="MMS\MmsConfiguration.cs" />
+    <Compile Include="MMS\MmsMessage.cs" />
+    <Compile Include="MMS\MmsMessageAsyncResult.cs" />
+    <Compile Include="NetworkRegistrationState.cs" />
+    <Compile Include="PhoneFuncionality.cs" />
+    <Compile Include="PinState.cs" />
+    <Compile Include="PowerOnAsyncResult.cs" />
+    <Compile Include="PowerStatus.cs" />
+    <Compile Include="Prompts.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReturnedState.cs" />
+    <Compile Include="SignalStrength.cs" />
+    <Compile Include="SIM800H.cs" />
+    <Compile Include="SIMCardStatus.cs" />
+    <Compile Include="Sms\ListTextMessagesAsyncResult.cs" />
+    <Compile Include="Sms\MessageDeleteOption.cs" />
+    <Compile Include="Sms\MessageState.cs" />
+    <Compile Include="Sms\MessageStatusReport.cs" />
+    <Compile Include="Sms\SendTextMessageAsyncResult.cs" />
+    <Compile Include="Sms\SmsClient.cs" />
+    <Compile Include="Sms\TextMessage.cs" />
+    <Compile Include="Sntp\SntpClient.cs" />
+    <Compile Include="Sntp\SyncNetworkTimeAsyncResult.cs" />
+    <Compile Include="Sntp\SyncResult.cs" />
+    <Compile Include="WarningCondition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Eclo.nF.Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib, Version=1.6.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.CoreLibrary.1.6.0-preview.1\lib\mscorlib.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="nanoFramework.Runtime.Events, Version=1.4.1.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.Runtime.Events.1.4.1-preview.5\lib\nanoFramework.Runtime.Events.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="nanoFramework.System.Collections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.System.Collections.1.0.0-preview.7\lib\nanoFramework.System.Collections.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="nanoFramework.System.Text, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.System.Text.1.0.0-preview.1\lib\nanoFramework.System.Text.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Math, Version=1.2.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.System.Math.1.2.0-preview.7\lib\System.Math.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Windows.Devices.Gpio, Version=1.4.1.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.Windows.Devices.Gpio.1.4.1-preview.7\lib\Windows.Devices.Gpio.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Windows.Devices.SerialCommunication, Version=1.2.1.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.Windows.Devices.SerialCommunication.1.2.1-preview.3\lib\Windows.Devices.SerialCommunication.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Windows.Storage.Streams, Version=1.8.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.Windows.Storage.Streams.1.8.0-preview.8\lib\Windows.Storage.Streams.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
+  <Import Project="e:\Program Files\Babel\MSBuild\Babel.Build.targets" Condition=" '$(Configuration)' == 'Release' " />
+  <ProjectExtensions>
+    <ProjectCapabilities>
+      <ProjectConfigurationsDeclaredAsItems />
+    </ProjectCapabilities>
+  </ProjectExtensions>
+  <Choose>
+    <When Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+      <PropertyGroup>
+        <EnableObfuscation>false</EnableObfuscation>
+      </PropertyGroup>
+    </When>
+    <When Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+      <PropertyGroup>
+        <ConstRemoval>false</ConstRemoval>
+        <ControlFlowObfuscation>goto=true;switch=true;case=true;if=true;call=true;value=false;token=false;underflow=false;true</ControlFlowObfuscation>
+        <CopyAttributes>true</CopyAttributes>
+        <DeadCodeElimination>false</DeadCodeElimination>
+        <DebuggingProtection>false</DebuggingProtection>
+        <DisgregateRemoval>false</DisgregateRemoval>
+        <DynamicProxy>None</DynamicProxy>
+        <EmitInvalidOpcodes>false</EmitInvalidOpcodes>
+        <EnableObfuscationAgent>true</EnableObfuscationAgent>
+        <EnumRemoval>false</EnumRemoval>
+        <FlattenNamespaces>true</FlattenNamespaces>
+        <GenerateDebug>false</GenerateDebug>
+        <GenerateLogFile>false</GenerateLogFile>
+        <GenerateMapOutFile>false</GenerateMapOutFile>
+        <ILIterations>6</ILIterations>
+        <InlineExpansion>false</InlineExpansion>
+        <InstrumentEmptyMethods>false</InstrumentEmptyMethods>
+        <Internalize>false</Internalize>
+        <ModuleInitializer>false</ModuleInitializer>
+        <MsilEncryption>false</MsilEncryption>
+        <ObfuscateEvents>true</ObfuscateEvents>
+        <ObfuscateFields>true</ObfuscateFields>
+        <ObfuscateMethods>true</ObfuscateMethods>
+        <ObfuscateParameters>true</ObfuscateParameters>
+        <ObfuscateProperties>true</ObfuscateProperties>
+        <ObfuscateTypes>true</ObfuscateTypes>
+        <ObfuscateXaml>false</ObfuscateXaml>
+        <OverloadedRenaming>true</OverloadedRenaming>
+        <ResourceEncryption>false</ResourceEncryption>
+        <SealClasses>false</SealClasses>
+        <SearchSatelliteAssemblies>true</SearchSatelliteAssemblies>
+        <ShowLogo>false</ShowLogo>
+        <ShowStatistics>true</ShowStatistics>
+        <StringEncryption>xor</StringEncryption>
+        <SuppressIldasm>false</SuppressIldasm>
+        <SuppressReflection>false</SuppressReflection>
+        <TamperingDetection>false</TamperingDetection>
+        <UnicodeNormalization>false</UnicodeNormalization>
+        <ValueEncryption>false</ValueEncryption>
+        <VirtualFunctions>false</VirtualFunctions>
+      </PropertyGroup>
+    </When>
+  </Choose>
+</Project>

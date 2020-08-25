@@ -1,0 +1,84 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "**/*.cs"
+          ],
+          "exclude": [
+            "**/obj/**",
+            "_site/**"
+          ]
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": true
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "toc.yml",
+          "*.md"          
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**",
+          "README.md",
+          "LICENSE",
+          "LICENSE-CODE"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      }
+    ],
+    "dest": "_site",
+    "markdownEngineName": "markdig",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "eclo1",
+      "documentation/templates/eclo1"
+    ],    
+    "postProcessors": [ "ExtractSearchIndex" ],
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false,
+    "globalMetadata": {
+      "_appTitle": "Eclo SIM800H IoT driver documentation",
+      "_enableSearch": true,
+      "_gitContribute": {
+        "branch": "pages-source"
+      }
+    }
+  }
+}

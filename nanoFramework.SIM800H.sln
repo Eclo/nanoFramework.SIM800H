@@ -1,0 +1,124 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "nanoFramework.SIM800H", "SIM800H\nanoFramework.SIM800H.nfproj", "{DD3C3335-BD8E-46DA-B173-23C14E3BFB7B}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Features", "Tests\Features\Features.nfproj", "{8B21CADF-6D3D-43E1-ABB9-E4E5886DFF5A}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "SMS Receive", "Tests\SMS Receive\SMS Receive.nfproj", "{394D0DBF-C843-4C8B-8494-9D1612E13F1A}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "SMS Batch Sending", "Tests\SMS batch sending\SMS Batch Sending.nfproj", "{E2EE4215-B2FE-40AD-8226-D3C0A05B420F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8D8BE6D5-ABBF-4FCC-932D-18EFA86EBE69}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Network Location and Time", "Tests\Network Location and Time\Network Location and Time.nfproj", "{36CA7BE6-5109-463D-B105-32D6EA533711}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "MMS Send Sync", "Tests\MMS Send Sync\MMS Send Sync.nfproj", "{D0B66470-D300-4FE6-91D1-00EBE6C45B94}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "HTTP Requests", "Tests\HTTP Requests\HTTP Requests.nfproj", "{3521CBCF-A323-42B1-A409-2310EA04B3C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1BBDE581-0369-444B-966D-69D48F61F799}"
+	ProjectSection(SolutionItems) = preProject
+		nuspec\eclo-solutions-icon.png = nuspec\eclo-solutions-icon.png
+		nuspec\Eclo.nanoFramework.Sim800H.nuspec = nuspec\Eclo.nanoFramework.Sim800H.nuspec
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD3C3335-BD8E-46DA-B173-23C14E3BFB7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD3C3335-BD8E-46DA-B173-23C14E3BFB7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD3C3335-BD8E-46DA-B173-23C14E3BFB7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD3C3335-BD8E-46DA-B173-23C14E3BFB7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD3C3335-BD8E-46DA-B173-23C14E3BFB7B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8B21CADF-6D3D-43E1-ABB9-E4E5886DFF5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B21CADF-6D3D-43E1-ABB9-E4E5886DFF5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B21CADF-6D3D-43E1-ABB9-E4E5886DFF5A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8B21CADF-6D3D-43E1-ABB9-E4E5886DFF5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B21CADF-6D3D-43E1-ABB9-E4E5886DFF5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B21CADF-6D3D-43E1-ABB9-E4E5886DFF5A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{394D0DBF-C843-4C8B-8494-9D1612E13F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{394D0DBF-C843-4C8B-8494-9D1612E13F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{394D0DBF-C843-4C8B-8494-9D1612E13F1A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{394D0DBF-C843-4C8B-8494-9D1612E13F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{394D0DBF-C843-4C8B-8494-9D1612E13F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{394D0DBF-C843-4C8B-8494-9D1612E13F1A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E2EE4215-B2FE-40AD-8226-D3C0A05B420F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2EE4215-B2FE-40AD-8226-D3C0A05B420F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2EE4215-B2FE-40AD-8226-D3C0A05B420F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E2EE4215-B2FE-40AD-8226-D3C0A05B420F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2EE4215-B2FE-40AD-8226-D3C0A05B420F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2EE4215-B2FE-40AD-8226-D3C0A05B420F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{36CA7BE6-5109-463D-B105-32D6EA533711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36CA7BE6-5109-463D-B105-32D6EA533711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36CA7BE6-5109-463D-B105-32D6EA533711}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{36CA7BE6-5109-463D-B105-32D6EA533711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36CA7BE6-5109-463D-B105-32D6EA533711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36CA7BE6-5109-463D-B105-32D6EA533711}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D0B66470-D300-4FE6-91D1-00EBE6C45B94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B66470-D300-4FE6-91D1-00EBE6C45B94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B66470-D300-4FE6-91D1-00EBE6C45B94}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D0B66470-D300-4FE6-91D1-00EBE6C45B94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B66470-D300-4FE6-91D1-00EBE6C45B94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B66470-D300-4FE6-91D1-00EBE6C45B94}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3521CBCF-A323-42B1-A409-2310EA04B3C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3521CBCF-A323-42B1-A409-2310EA04B3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3521CBCF-A323-42B1-A409-2310EA04B3C2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3521CBCF-A323-42B1-A409-2310EA04B3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3521CBCF-A323-42B1-A409-2310EA04B3C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3521CBCF-A323-42B1-A409-2310EA04B3C2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8B21CADF-6D3D-43E1-ABB9-E4E5886DFF5A} = {8D8BE6D5-ABBF-4FCC-932D-18EFA86EBE69}
+		{394D0DBF-C843-4C8B-8494-9D1612E13F1A} = {8D8BE6D5-ABBF-4FCC-932D-18EFA86EBE69}
+		{E2EE4215-B2FE-40AD-8226-D3C0A05B420F} = {8D8BE6D5-ABBF-4FCC-932D-18EFA86EBE69}
+		{36CA7BE6-5109-463D-B105-32D6EA533711} = {8D8BE6D5-ABBF-4FCC-932D-18EFA86EBE69}
+		{D0B66470-D300-4FE6-91D1-00EBE6C45B94} = {8D8BE6D5-ABBF-4FCC-932D-18EFA86EBE69}
+		{3521CBCF-A323-42B1-A409-2310EA04B3C2} = {8D8BE6D5-ABBF-4FCC-932D-18EFA86EBE69}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF138A95-E468-4116-97B9-AE4DF881665B}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://eclo.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Tests\\Features\\Features.nfproj
+		SccProjectTopLevelParentUniqueName1 = nanoFramework.SIM800H.sln
+		SccProjectName1 = Tests/Features
+		SccLocalPath1 = Tests\\Features
+		SccProjectUniqueName2 = Tests\\HTTP\u0020Requests\\HTTP\u0020Requests.nfproj
+		SccProjectTopLevelParentUniqueName2 = nanoFramework.SIM800H.sln
+		SccProjectName2 = Tests/HTTP\u0020Requests
+		SccLocalPath2 = Tests\\HTTP\u0020Requests
+		SccProjectUniqueName3 = Tests\\MMS\u0020Send\u0020Sync\\MMS\u0020Send\u0020Sync.nfproj
+		SccProjectTopLevelParentUniqueName3 = nanoFramework.SIM800H.sln
+		SccProjectName3 = Tests/MMS\u0020Send\u0020Sync
+		SccLocalPath3 = Tests\\MMS\u0020Send\u0020Sync
+		SccProjectUniqueName4 = Tests\\Network\u0020Location\u0020and\u0020Time\\Network\u0020Location\u0020and\u0020Time.nfproj
+		SccProjectTopLevelParentUniqueName4 = nanoFramework.SIM800H.sln
+		SccProjectName4 = Tests/Network\u0020Location\u0020and\u0020Time
+		SccLocalPath4 = Tests\\Network\u0020Location\u0020and\u0020Time
+		SccProjectUniqueName5 = Tests\\SMS\u0020batch\u0020sending\\SMS\u0020Batch\u0020Sending.nfproj
+		SccProjectTopLevelParentUniqueName5 = nanoFramework.SIM800H.sln
+		SccProjectName5 = Tests/SMS\u0020batch\u0020sending
+		SccLocalPath5 = Tests\\SMS\u0020batch\u0020sending
+		SccProjectUniqueName6 = Tests\\SMS\u0020Receive\\SMS\u0020Receive.nfproj
+		SccProjectTopLevelParentUniqueName6 = nanoFramework.SIM800H.sln
+		SccProjectName6 = Tests/SMS\u0020Receive
+		SccLocalPath6 = Tests\\SMS\u0020Receive
+		SccProjectUniqueName7 = SIM800H\\nanoFramework.SIM800H.nfproj
+		SccProjectName7 = SIM800H
+		SccLocalPath7 = SIM800H
+	EndGlobalSection
+EndGlobal

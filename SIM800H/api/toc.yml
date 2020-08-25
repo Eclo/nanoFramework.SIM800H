@@ -1,0 +1,144 @@
+### YamlMime:TableOfContent
+- uid: Eclo.nF.SIM800H
+  name: Eclo.nF.SIM800H
+  items:
+  - uid: Eclo.nF.SIM800H.AccessPointConfiguration
+    name: AccessPointConfiguration
+  - uid: Eclo.nF.SIM800H.AtCommandResult
+    name: AtCommandResult
+  - uid: Eclo.nF.SIM800H.BearerProfile
+    name: BearerProfile
+  - uid: Eclo.nF.SIM800H.ConnectGprsAsyncResult
+    name: ConnectGprsAsyncResult
+  - uid: Eclo.nF.SIM800H.ConnectGprsResult
+    name: ConnectGprsResult
+  - uid: Eclo.nF.SIM800H.ConnectionStatus
+    name: ConnectionStatus
+  - uid: Eclo.nF.SIM800H.DeviceAsyncResult
+    name: DeviceAsyncResult
+  - uid: Eclo.nF.SIM800H.FileStorage
+    name: FileStorage
+  - uid: Eclo.nF.SIM800H.GprsProvider
+    name: GprsProvider
+  - uid: Eclo.nF.SIM800H.GprsProvider.GprsIpAppsBearerStateChangedHandler
+    name: GprsProvider.GprsIpAppsBearerStateChangedHandler
+  - uid: Eclo.nF.SIM800H.GprsProvider.GprsSocketsBearerStateChangedHandler
+    name: GprsProvider.GprsSocketsBearerStateChangedHandler
+  - uid: Eclo.nF.SIM800H.GprsProvider.MmsBearerStateChangedHandler
+    name: GprsProvider.MmsBearerStateChangedHandler
+  - uid: Eclo.nF.SIM800H.GprsSocket
+    name: GprsSocket
+  - uid: Eclo.nF.SIM800H.GprsSocket.DataReceivedHandler
+    name: GprsSocket.DataReceivedHandler
+  - uid: Eclo.nF.SIM800H.GprsSocket.SocketClosedHandler
+    name: GprsSocket.SocketClosedHandler
+  - uid: Eclo.nF.SIM800H.GprsSocket.SocketConnectedHandler
+    name: GprsSocket.SocketConnectedHandler
+  - uid: Eclo.nF.SIM800H.HttpAction
+    name: HttpAction
+  - uid: Eclo.nF.SIM800H.HttpActionResult
+    name: HttpActionResult
+  - uid: Eclo.nF.SIM800H.HttpClient
+    name: HttpClient
+  - uid: Eclo.nF.SIM800H.HttpClient.HttpActionReceivedHandler
+    name: HttpClient.HttpActionReceivedHandler
+  - uid: Eclo.nF.SIM800H.HttpCurrentStatus
+    name: HttpCurrentStatus
+  - uid: Eclo.nF.SIM800H.HttpKnownHeaderNames
+    name: HttpKnownHeaderNames
+  - uid: Eclo.nF.SIM800H.HttpStatusCode
+    name: HttpStatusCode
+  - uid: Eclo.nF.SIM800H.HttpWebRequest
+    name: HttpWebRequest
+  - uid: Eclo.nF.SIM800H.HttpWebRequestAsyncResult
+    name: HttpWebRequestAsyncResult
+  - uid: Eclo.nF.SIM800H.HttpWebResponse
+    name: HttpWebResponse
+  - uid: Eclo.nF.SIM800H.ListTextMessagesAsyncResult
+    name: ListTextMessagesAsyncResult
+  - uid: Eclo.nF.SIM800H.LocationAndTime
+    name: LocationAndTime
+  - uid: Eclo.nF.SIM800H.MessageDeleteOption
+    name: MessageDeleteOption
+  - uid: Eclo.nF.SIM800H.MessageState
+    name: MessageState
+  - uid: Eclo.nF.SIM800H.MessageStatusReport
+    name: MessageStatusReport
+  - uid: Eclo.nF.SIM800H.MmsClient
+    name: MmsClient
+  - uid: Eclo.nF.SIM800H.MmsConfiguration
+    name: MmsConfiguration
+  - uid: Eclo.nF.SIM800H.MmsMessage
+    name: MmsMessage
+  - uid: Eclo.nF.SIM800H.NetworkRegistrationState
+    name: NetworkRegistrationState
+  - uid: Eclo.nF.SIM800H.OpenBearerAsyncResult
+    name: OpenBearerAsyncResult
+  - uid: Eclo.nF.SIM800H.OpenBearerResult
+    name: OpenBearerResult
+  - uid: Eclo.nF.SIM800H.PhoneFuncionality
+    name: PhoneFuncionality
+  - uid: Eclo.nF.SIM800H.PinState
+    name: PinState
+  - uid: Eclo.nF.SIM800H.PowerOnAsyncResult
+    name: PowerOnAsyncResult
+  - uid: Eclo.nF.SIM800H.PowerStatus
+    name: PowerStatus
+  - uid: Eclo.nF.SIM800H.ProtocolType
+    name: ProtocolType
+  - uid: Eclo.nF.SIM800H.ReturnedState
+    name: ReturnedState
+  - uid: Eclo.nF.SIM800H.SendMmsMessageAsyncResult
+    name: SendMmsMessageAsyncResult
+  - uid: Eclo.nF.SIM800H.SendTextMessageAsyncResult
+    name: SendTextMessageAsyncResult
+  - uid: Eclo.nF.SIM800H.SignalStrength
+    name: SignalStrength
+  - uid: Eclo.nF.SIM800H.SIM800H
+    name: SIM800H
+  - uid: Eclo.nF.SIM800H.SIM800H.CallReadyHandler
+    name: SIM800H.CallReadyHandler
+  - uid: Eclo.nF.SIM800H.SIM800H.GprsNetworkRegistrationChangedHandler
+    name: SIM800H.GprsNetworkRegistrationChangedHandler
+  - uid: Eclo.nF.SIM800H.SIM800H.GsmNetworkRegistrationChangedHandler
+    name: SIM800H.GsmNetworkRegistrationChangedHandler
+  - uid: Eclo.nF.SIM800H.SIM800H.PowerStatusChangedHandler
+    name: SIM800H.PowerStatusChangedHandler
+  - uid: Eclo.nF.SIM800H.SIM800H.SimCardStatusChangedHandler
+    name: SIM800H.SimCardStatusChangedHandler
+  - uid: Eclo.nF.SIM800H.SIM800H.SmsReadyHandler
+    name: SIM800H.SmsReadyHandler
+  - uid: Eclo.nF.SIM800H.SIM800H.SmsSentReferenceReceivedHandler
+    name: SIM800H.SmsSentReferenceReceivedHandler
+  - uid: Eclo.nF.SIM800H.SIM800H.WarningConditionTriggeredHandler
+    name: SIM800H.WarningConditionTriggeredHandler
+  - uid: Eclo.nF.SIM800H.SimCardStatus
+    name: SimCardStatus
+  - uid: Eclo.nF.SIM800H.SmsProvider
+    name: SmsProvider
+  - uid: Eclo.nF.SIM800H.SmsProvider.SmsReceivedHandler
+    name: SmsProvider.SmsReceivedHandler
+  - uid: Eclo.nF.SIM800H.SmsProvider.SmsStatusReceivedHandler
+    name: SmsProvider.SmsStatusReceivedHandler
+  - uid: Eclo.nF.SIM800H.SntpClient
+    name: SntpClient
+  - uid: Eclo.nF.SIM800H.SntpClient.SntpReplyReceivedHandler
+    name: SntpClient.SntpReplyReceivedHandler
+  - uid: Eclo.nF.SIM800H.SocketError
+    name: SocketError
+  - uid: Eclo.nF.SIM800H.SocketException
+    name: SocketException
+  - uid: Eclo.nF.SIM800H.SyncNetworkTimeAsyncResult
+    name: SyncNetworkTimeAsyncResult
+  - uid: Eclo.nF.SIM800H.SyncResult
+    name: SyncResult
+  - uid: Eclo.nF.SIM800H.TextMessage
+    name: TextMessage
+  - uid: Eclo.nF.SIM800H.Uri
+    name: Uri
+  - uid: Eclo.nF.SIM800H.WarningCondition
+    name: WarningCondition
+  - uid: Eclo.nF.SIM800H.WebHeaderCollection
+    name: WebHeaderCollection
+  - uid: Eclo.nF.SIM800H.WebRequest
+    name: WebRequest

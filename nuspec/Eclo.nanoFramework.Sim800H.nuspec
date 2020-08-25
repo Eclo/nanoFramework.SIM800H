@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Eclo.nanoFramework.SIM800H</id>
+    <title>.NET nanoFramework driver for SIM800H</title>
+    <version>0.0.0</version>
+    <authors>Eclo Solutions</authors>
+    <owners>Eclo Solutions</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <releaseNotes>
+    </releaseNotes>
+    <developmentDependency>false</developmentDependency>
+    <projectUrl>http://eclo.github.io/SIM800h-IoT-module</projectUrl>
+    <iconUrl>https://s.gravatar.com/avatar/bdf1e8faff0348220a1fd8c4b6e3f81d</iconUrl>
+    <icon>images\eclo-solutions-icon.png</icon>
+    <copyright>Copyright (c) 2018 Eclo Solutions</copyright>
+    <license type="expression">MIT</license>
+    <description>This package includes the Eclo.nanoFramework.SIM800H assembly for nanoFramework C# projects.</description>
+    <summary>This library is a .NET nanoFramework driver for Eclo Solutions SIM800H IoT module. &#10;
+Includes support for: &#10;
+- TCP sockets (with/without SLL) &#10;
+- HTTP(S) with .NET equivalent API &#10;
+- SMS &#10;
+- NTP protocol &#10;
+- Location services (using SIMCOM API) &#10;
+- Sending image and text MMS message</summary>
+    <tags>nanoFramework NETMF Micro Framework SIM800 SMS GPRS HTTP HTTPS .net</tags>
+    <dependencies>
+      <dependency id="nanoFramework.CoreLibrary" version="1.6.0-preview.1" />
+      <dependency id="nanoFramework.Runtime.Events" version="1.4.1-preview.5" />
+      <dependency id="nanoFramework.System.Math" version="1.2.0-preview.7" />
+      <dependency id="nanoFramework.Windows.Devices.Gpio" version="1.4.1-preview.7" />
+      <dependency id="nanoFramework.Windows.Devices.SerialCommunication" version="1.2.1-preview.3" />
+      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.8.0-preview.8" />
+      <dependency id="nanoFramework.System.Collections" version="1.0.0-preview.7" />
+      <dependency id="nanoFramework.System.Text" version="1.0.0-preview.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="SIM800H\bin\Release\Eclo.nanoFramework.SIM800H.dll" target="lib\Eclo.nanoFramework.SIM800H.dll" />
+    <file src="SIM800H\bin\Release\Eclo.nanoFramework.SIM800H.pdb" target="lib\Eclo.nanoFramework.SIM800H.pdb" />
+    <file src="SIM800H\bin\Release\Eclo.nanoFramework.SIM800H.pdbx" target="lib\Eclo.nanoFramework.SIM800H.pdbx" />
+    <file src="SIM800H\bin\Release\Eclo.nanoFramework.SIM800H.pe" target="lib\Eclo.nanoFramework.SIM800H.pe" />
+    <file src="SIM800H\bin\Release\Eclo.nanoFramework.SIM800H.xml" target="lib\Eclo.nanoFramework.SIM800H.xml" />
+    <file src="eclo-solutions-icon.png" target="images\" />
+  </files>
+</package>
