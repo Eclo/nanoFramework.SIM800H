@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>Eclo.nanoFramework.SIM800H</id>
     <title>.NET nanoFramework driver for SIM800H</title>
@@ -16,24 +16,31 @@
     <copyright>Copyright (c) 2018 Eclo Solutions</copyright>
     <license type="expression">MIT</license>
     <description>This package includes the Eclo.nanoFramework.SIM800H assembly for nanoFramework C# projects.</description>
-    <summary>This library is a .NET nanoFramework driver for Eclo Solutions SIM800H IoT module. &#10;
-Includes support for: &#10;
-- TCP sockets (with/without SLL) &#10;
-- HTTP(S) with .NET equivalent API &#10;
-- SMS &#10;
-- NTP protocol &#10;
-- Location services (using SIMCOM API) &#10;
+    <summary>This library is a .NET nanoFramework driver for Eclo Solutions SIM800H IoT module. 
+
+Includes support for: 
+
+- TCP sockets (with/without SLL) 
+
+- HTTP(S) with .NET equivalent API 
+
+- SMS 
+
+- NTP protocol 
+
+- Location services (using SIMCOM API) 
+
 - Sending image and text MMS message</summary>
     <tags>nanoFramework NETMF Micro Framework SIM800 SMS GPRS HTTP HTTPS .net</tags>
     <dependencies>
-      <dependency id="nanoFramework.CoreLibrary" version="1.6.0-preview.1" />
-      <dependency id="nanoFramework.Runtime.Events" version="1.4.1-preview.5" />
-      <dependency id="nanoFramework.System.Math" version="1.2.0-preview.7" />
-      <dependency id="nanoFramework.Windows.Devices.Gpio" version="1.4.1-preview.7" />
-      <dependency id="nanoFramework.Windows.Devices.SerialCommunication" version="1.2.1-preview.3" />
-      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.8.0-preview.8" />
-      <dependency id="nanoFramework.System.Collections" version="1.0.0-preview.7" />
-      <dependency id="nanoFramework.System.Text" version="1.0.0-preview.1" />
+      <dependency id="nanoFramework.CoreLibrary" version="1.7.3" />
+      <dependency id="nanoFramework.Runtime.Events" version="1.8.1-preview.22" />
+      <dependency id="nanoFramework.System.Math" version="1.3.1-preview.2" />
+      <dependency id="nanoFramework.Windows.Devices.Gpio" version="1.5.1-preview.4" />
+      <dependency id="nanoFramework.Windows.Devices.SerialCommunication" version="1.3.3-preview.3" />
+      <dependency id="nanoFramework.Windows.Storage.Streams" version="1.10.0" />
+      <dependency id="nanoFramework.System.Collections" version="1.1.0" />
+      <dependency id="nanoFramework.System.Text" version="1.1.0" />
     </dependencies>
   </metadata>
   <files>
