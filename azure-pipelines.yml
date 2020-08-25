@@ -28,7 +28,6 @@ variables:
 steps:
 
 - checkout: self
-  fetchDepth: 1
 
 - checkout: git://InternalFeed/Babel.Obfuscator
   fetchDepth: 1
@@ -36,6 +35,13 @@ steps:
 - script: |
     git config --global core.autocrlf true
   displayName: Setup git identity
+
+- task: DotNetCoreCLI@2  
+  displayName: Install NBGV tool
+  inputs:
+    command: custom
+    custom: tool
+    arguments: install -g nbgv
 
 - task: NuGetToolInstaller@0
   displayName: 'Install specifc version of NuGet'
@@ -67,7 +73,7 @@ steps:
   displayName: Pack NuGet with class library
   inputs:
     command: 'custom' 
-    arguments: 'pack $(Build.SourcesDirectory)\$(System.TeamProject)\nuspec\Eclo.nanoFramework.Sim800H.nuspec -Version 1.0.2.1 -BasePath $(Build.SourcesDirectory)\$(System.TeamProject)'
+    arguments: 'pack $(Build.SourcesDirectory)\$(System.TeamProject)\nuspec\Eclo.nanoFramework.Sim800H.nuspec -Version $(NBGV_Version) -BasePath $(Build.SourcesDirectory)\$(System.TeamProject)'
 
 - task: CopyFiles@1
   condition: succeeded()
@@ -88,14 +94,14 @@ steps:
     ArtifactName: deployables
     ArtifactType: Container
 
-# # push NuGet class lib package to NuGet (always happens except on PR builds)
-# - task: NuGetCommand@2
-#   condition: and( succeeded(), ne(variables['Build.Reason'], 'PullRequest') )
-#   continueOnError: true
-#   displayName: Push NuGet packages to NuGet
-#   inputs:
-#     command: push
-#     nuGetFeedType: external
-#     allowPackageConflicts: true
-#     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-#     publishFeedCredentials: 'nuget-$(System.TeamProject)'
+# push NuGet class lib package to NuGet (always happens except on PR builds)
+- task: NuGetCommand@2
+  condition: and( succeeded(), ne(variables['Build.Reason'], 'PullRequest') )
+  continueOnError: true
+  displayName: Push NuGet packages to NuGet
+  inputs:
+    command: push
+    nuGetFeedType: external
+    allowPackageConflicts: true
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    publishFeedCredentials: 'nuget-nanoFramework.SIM800H'

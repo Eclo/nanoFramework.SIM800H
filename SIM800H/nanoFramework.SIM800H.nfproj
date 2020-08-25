@@ -126,6 +126,7 @@
     </Reference>
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
+  <Import Project="..\packages\Nerdbank.GitVersioning.3.2.31\build\Nerdbank.GitVersioning.targets" Condition="Exists('..\packages\Nerdbank.GitVersioning.3.2.31\build\Nerdbank.GitVersioning.targets')" />
   <Import Project="E:\Github\Babel.Obfuscator\MSBuild\Babel.Build.targets" Condition=" '$(Configuration)' == 'Release' AND '$(SYSTEM_TEAMPROJECTID)' == '' " />
   <!-- The path to this targets file needs to be hardcoded to work in Azure Pipelines -->
   <Import Project="D:\a\1\s\Babel.Obfuscator\MSBuild\Babel.Build.targets" Condition=" '$(Configuration)' == 'Release' AND '$(SYSTEM_TEAMPROJECTID)' != '' " />
