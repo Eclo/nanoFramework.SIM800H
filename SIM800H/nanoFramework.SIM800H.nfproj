@@ -23,7 +23,7 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
-    <Compile Include="..\..\Eclo.nF.Extensions\Eclo.nF.SerialDeviceExtensions.cs" Link="Eclo.nF.Extensions\Eclo.nF.SerialDeviceExtensions.cs" />
+    <Compile Include="Eclo.nF.Extensions\Eclo.nF.SerialDeviceExtensions.cs"/>
     <Compile Include="AccessPointConfiguration.cs" />
     <Compile Include="AtCommandResult.cs" />
     <Compile Include="BearerProfile.cs" />
