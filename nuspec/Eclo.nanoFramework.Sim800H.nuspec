@@ -3,7 +3,7 @@
   <metadata>
     <id>Eclo.nanoFramework.SIM800H</id>
     <title>.NET nanoFramework driver for SIM800H</title>
-    <version>0.0.0</version>
+    <version>$version$</version>
     <authors>Eclo Solutions</authors>
     <owners>Eclo Solutions</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
