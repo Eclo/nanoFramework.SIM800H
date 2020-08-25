@@ -134,7 +134,8 @@
     </Reference>
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
-  <Import Project="e:\Program Files\Babel\MSBuild\Babel.Build.targets" Condition=" '$(Configuration)' == 'Release' " />
+  <Import Project="E:\Github\Babel.Obfuscator\MSBuild\Babel.Build.targets" Condition=" '$(Configuration)' == 'Release' AND '$(SYSTEM_TEAMPROJECTID)' == '' " />
+  <Import Project="E:\Github\Babel.Obfuscator\MSBuild\Babel.Build.targets" Condition=" '$(Configuration)' == 'Release' AND '$(SYSTEM_TEAMPROJECTID)' != '' " />
   <ProjectExtensions>
     <ProjectCapabilities>
       <ProjectConfigurationsDeclaredAsItems />
