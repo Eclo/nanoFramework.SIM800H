@@ -1,7 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
 trigger:
 - master
@@ -17,11 +13,11 @@ resources:
 
 # need to build on VS2017 until the VS2019 issue with RESX is available
 pool:
-  vmImage: 'VS2017-Win2016'
+  vmImage: 'VS2019'
 
 variables:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-  solution: '**/*.sln'
+  solution: 'nanoFramework.SIM800H.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -36,17 +32,9 @@ steps:
     git config --global core.autocrlf true
   displayName: Setup git identity
 
-- task: DotNetCoreCLI@2  
-  displayName: Install NBGV tool
-  inputs:
-    command: custom
-    custom: tool
-    arguments: install -g nbgv
+- template: nb-gitversioning.yml@templates
 
-- task: NuGetToolInstaller@0
-  displayName: 'Install specifc version of NuGet'
-  inputs:
-    versionSpec: '5.4.0'
+- template: install-nuget.yml@templates
 
 - task: NuGetCommand@2
   condition: succeeded()
