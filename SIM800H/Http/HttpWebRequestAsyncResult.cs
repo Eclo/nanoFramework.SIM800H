@@ -246,13 +246,13 @@ namespace Eclo.nanoFramework.SIM800H
                                 /*TBD                                if (SIM800H.Instance._serialDevice.BytesToWrite > chunkSize)
                                                                 {
                                                                     SIM800H.Instance._serialDevice.Flush();
-                                                                    //Console.WriteLine("*"); 
+                                                                    //Debug.WriteLine("*"); 
                                                                 }*/
 
                                 // send chunk writing directly to UART
                                 SIM800H.Instance._serialDevice.WriteBytes(((Http.HttpByteBuffer)buffer).Data, 0, chunkSize);
 
-                                //Console.WriteLine("w " + _httpRequest._requestStream.Position); 
+                                //Debug.WriteLine("w " + _httpRequest._requestStream.Position); 
 
                                 // update index
                                 index += chunkSize;
@@ -271,7 +271,7 @@ namespace Eclo.nanoFramework.SIM800H
 /*TBD                                if (SIM800H.Instance._serialDevice.BytesToWrite > chunkSize)
                                 {
                                     SIM800H.Instance._serialDevice.Flush();
-                                    //Console.WriteLine("*"); 
+                                    //Debug.WriteLine("*"); 
                                 }*/
 
                                 // send chunk writing directly to UART

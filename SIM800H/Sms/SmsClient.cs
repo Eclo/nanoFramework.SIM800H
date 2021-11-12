@@ -32,7 +32,7 @@ namespace Eclo.nanoFramework.SIM800H
                 ret = SIM800H.Instance.SendATCommandAndWaitForResponse(atCommand, 6000);
                 if (ret.Result != ReturnedState.OK)
                 {
-                    //Console.WriteLine("failed to set SMS storage");
+                    //Debug.WriteLine("failed to set SMS storage");
                 }
             }
 
@@ -99,7 +99,7 @@ namespace Eclo.nanoFramework.SIM800H
                 TextMessage sms = new TextMessage();
                 try
                 {
-                    //Console.WriteLine("---" + readMessage.Response);
+                    //Debug.WriteLine("---" + readMessage.Response);
                     // check if response is empty
                     if (readMessage.Response.IndexOf(Prompts.CMGR) > -1)
                     {

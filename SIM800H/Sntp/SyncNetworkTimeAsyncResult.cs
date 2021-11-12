@@ -31,7 +31,7 @@ namespace Eclo.nanoFramework.SIM800H
             }
 
             // SIM800 understands UTC time offset in quarters of hour, see NTP app note
-            this.utcOffsetCalculated += (((utcOffset.Hours) * 4) + ((int)Math.Floor(utcOffset.Minutes / 15))).ToString("D2");
+            this.utcOffsetCalculated += (((utcOffset.Hours) * 4) + ((int)Math.Floor(utcOffset.Minutes / 15.0))).ToString("D2");
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Eclo.nanoFramework.SIM800H
                 if (!SIM800H.GprsIpAppsBearerIsOpen)
                 {
                     // context not opened
-                    //Console.WriteLine("failed: context not opened");
+                    //Debug.WriteLine("failed: context not opened");
 
                     Result = SyncResult.ConnectionError;
                     return;
@@ -70,7 +70,7 @@ namespace Eclo.nanoFramework.SIM800H
                 ret = SIM800H.Instance.SendATCommand(Prompts.AT + Prompts.CNTP + @"=""" + sntpServer + @"""," + utcOffsetCalculated, 2000);
                 if (ret.Result != ReturnedState.OK)
                 {
-                    //Console.WriteLine("failed to set SNTP request parameters");
+                    //Debug.WriteLine("failed to set SNTP request parameters");
 
                     Result = SyncResult.Error;
                     return;

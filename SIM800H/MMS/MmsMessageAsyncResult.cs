@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Threading;
 using Eclo.nF.Extensions;
 
@@ -157,7 +158,7 @@ namespace Eclo.nanoFramework.SIM800H
                     }
                     else if (sendMessage.Result == ReturnedState.Error && sendMessage.Response != string.Empty)
                     {
-                        Console.WriteLine("error: " + sendMessage.Response); 
+                        Debug.WriteLine("error: " + sendMessage.Response); 
 
                         // process error and return
                         ErrorCode = 902;
@@ -241,7 +242,7 @@ namespace Eclo.nanoFramework.SIM800H
 /*TBD                            if (SIM800H.Instance._serialDevice.BytesToWrite > chunkSize)
                             {
                                 SIM800H.Instance._serialDevice.Flush();
-                                //Console.WriteLine("*"); 
+                                //Debug.WriteLine("*"); 
                             }*/
 
                             // read chunk and send it directly to UART
@@ -253,7 +254,7 @@ namespace Eclo.nanoFramework.SIM800H
                     }
                     else if (sendMessage.Result == ReturnedState.Error && sendMessage.Response != string.Empty)
                     {
-                        Console.WriteLine("error: " + sendMessage.Response);
+                        Debug.WriteLine("error: " + sendMessage.Response);
 
                         // process error and return
                         ErrorCode = 908;
@@ -360,7 +361,7 @@ namespace Eclo.nanoFramework.SIM800H
 /*TBD                            if (SIM800H.Instance._serialDevice.BytesToWrite > chunkSize)
                             {
                                 SIM800H.Instance._serialDevice.Flush();
-                                //Console.WriteLine("*"); 
+                                //Debug.WriteLine("*"); 
                             }*/
 
                             // send directly to UART
@@ -372,7 +373,7 @@ namespace Eclo.nanoFramework.SIM800H
                     }
                     else if(sendMessage.Result == ReturnedState.Error && sendMessage.Response != string.Empty)
                     {
-                        Console.WriteLine("error: " + sendMessage.Response);
+                        Debug.WriteLine("error: " + sendMessage.Response);
                         
                         // process error and return
                         ErrorCode = 916;
@@ -442,7 +443,7 @@ namespace Eclo.nanoFramework.SIM800H
                 sendMessage = SIM800H.Instance.SendATCommandAndWaitForResponse(command, 21000);
                 if (sendMessage.Result == ReturnedState.Error && sendMessage.Response != string.Empty)
                 {
-                    Console.WriteLine("error: " + sendMessage.Response); 
+                    Debug.WriteLine("error: " + sendMessage.Response); 
 
                     // process error and return
                     ErrorCode = 920;

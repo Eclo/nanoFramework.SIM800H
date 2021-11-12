@@ -71,7 +71,7 @@ namespace Eclo.nanoFramework.SIM800H
                 SIM800H.Instance._serialDevice.DiscardInBuffer();
 
 #if DEBUG__
-                //Console.WriteLine("Starting power on sequence");
+                //Debug.WriteLine("Starting power on sequence");
 #endif
 
                 if (SIM800H.PowerStatus != PowerStatus.On)
@@ -83,7 +83,7 @@ namespace Eclo.nanoFramework.SIM800H
                     // if module is ON it will be off which is good because we'll have it in a know good state
                     // if module is OFF it will power ON
 #if DEBUG__
-                    Console.WriteLine("Turning module on with power key");
+                    Debug.WriteLine("Turning module on with power key");
 #endif
                     SIM800H.Instance._powerKey.Write(GpioPinValue.High);
                     Thread.Sleep(1100);
@@ -91,7 +91,7 @@ namespace Eclo.nanoFramework.SIM800H
                     Thread.Sleep(3100);
 
 #if DEBUG__
-                    Console.WriteLine("Sending AT to wake module or set auto baud");
+                    Debug.WriteLine("Sending AT to wake module or set auto baud");
 #endif
 
                     // send AT directly to UART so this is not processed as command, waiting for reply, etc
@@ -115,7 +115,7 @@ namespace Eclo.nanoFramework.SIM800H
                                 // OK found, we are good to continue
 
 #if DEBUG__
-                                Console.WriteLine("OK prompt, module is awake");
+                                Debug.WriteLine("OK prompt, module is awake");
 #endif
 
                                 wakeUpPromptOK = true;
@@ -131,7 +131,7 @@ namespace Eclo.nanoFramework.SIM800H
                                 // RDY prompt found, we are good to continue
 
 #if DEBUG__
-                                Console.WriteLine("RDY prompt, module is awake");
+                                Debug.WriteLine("RDY prompt, module is awake");
 #endif
 
                                 readyPromptOK = true;
@@ -140,7 +140,7 @@ namespace Eclo.nanoFramework.SIM800H
                         }
 
 #if DEBUG__
-                        Console.WriteLine("waiting wake up prompt...");
+                        Debug.WriteLine("waiting wake up prompt...");
 #endif 
                         
                         // sleep
@@ -152,7 +152,7 @@ namespace Eclo.nanoFramework.SIM800H
                         // wake up prompt wasn't detected, try to wakeup with power key
 
 #if DEBUG__
-                        //Console.WriteLine("Turning module on with power key");
+                        //Debug.WriteLine("Turning module on with power key");
 #endif
                         SIM800H.Instance._powerKey.Write(GpioPinValue.High);
                         Thread.Sleep(1100);
@@ -171,7 +171,7 @@ namespace Eclo.nanoFramework.SIM800H
                         {
                             // isn't working 
 #if DEBUG__
-                            Console.WriteLine("*** Power on sequence failed ***");
+                            Debug.WriteLine("*** Power on sequence failed ***");
 #endif
 
                             // restore module power status
@@ -183,7 +183,7 @@ namespace Eclo.nanoFramework.SIM800H
                         //{
                         //    // to many retries, maybe module hasn't been configured ever
 
-                        //    //Console.WriteLine("*** Reconfiguring baud rate ***");
+                        //    //Debug.WriteLine("*** Reconfiguring baud rate ***");
 
                         //    // close serial
                         //    SIM800H._serialLine.Close();
@@ -212,7 +212,7 @@ namespace Eclo.nanoFramework.SIM800H
                     if (!SIM800H.Instance.SendConfigurationToDevice())
                     {
 #if DEBUG__
-                        Console.WriteLine("Failure sending configuration to module.");
+                        Debug.WriteLine("Failure sending configuration to module.");
 #endif
                     }
 
@@ -230,7 +230,7 @@ namespace Eclo.nanoFramework.SIM800H
                     SIM800H.PowerStatus = PowerStatus.On;
 
 #if DEBUG__
-                    Console.WriteLine("Module is ON");
+                    Debug.WriteLine("Module is ON");
 #endif
                 }
 

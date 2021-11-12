@@ -20,7 +20,7 @@ namespace Eclo.nanoFramework.SIM800H
                 ret = SIM800H.Instance.SendATCommandAndWaitForResponse(Prompts.AT + Prompts.CNTP + @"CID=1", 2000);
                 if (ret.Result != ReturnedState.OK)
                 {
-                    //Console.WriteLine("failed to assign bearer profile");
+                    //Debug.WriteLine("failed to assign bearer profile");
                 }
             }
 

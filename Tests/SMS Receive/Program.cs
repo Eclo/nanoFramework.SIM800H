@@ -21,7 +21,7 @@ namespace SMS_Receive
                 Thread.Sleep(5000);
 
                 // output signal RSSI
-                Console.WriteLine("Network signal strength is " + Eclo.nanoFramework.SIM800H.SIM800H.RetrieveSignalStrength().GetSignalStrengthDescription());
+                Debug.WriteLine("Network signal strength is " + Eclo.nanoFramework.SIM800H.SIM800H.RetrieveSignalStrength().GetSignalStrengthDescription());
             };
         }
 
@@ -37,7 +37,7 @@ namespace SMS_Receive
             GpioPin sim800PowerKey = GpioController.GetDefault().OpenPin(0 * 1 + 10, GpioSharingMode.Exclusive);
             sim800PowerKey.SetDriveMode(GpioPinDriveMode.Output);
 
-            Console.WriteLine("... Configuring SIM800H ...");
+            Debug.WriteLine("... Configuring SIM800H ...");
 
             // configure SIM800H device
             Eclo.nanoFramework.SIM800H.SIM800H.Configure(sim800PowerKey, ref _serialDevice);
@@ -58,22 +58,22 @@ namespace SMS_Receive
                 // check result
                 if (((PowerOnAsyncResult)ar).Result == PowerStatus.On)
                 {
-                    Console.WriteLine("... Power on sequence completed...");
+                    Debug.WriteLine("... Power on sequence completed...");
                 }
                 else
                 {
                     // something went wrong...
-                    Console.WriteLine("### Power on sequence FAILED ###");
+                    Debug.WriteLine("### Power on sequence FAILED ###");
                 }
             }
             );
 
-            Console.WriteLine("... Power on sequence started ...");
+            Debug.WriteLine("... Power on sequence started ...");
         }
 
         private static void SIM800H_SmsReady()
         {
-            Console.WriteLine("... SIM800H SMS engine is ready ...");
+            Debug.WriteLine("... SIM800H SMS engine is ready ...");
 
             // setup event handler to be notified when a new SMS arrives
             // because we may receive this event more than once (module wake-up, reboot, intermittent registration in network, etc.
@@ -90,22 +90,22 @@ namespace SMS_Receive
             // as an optional argument we can delete the message from the memory after being read
             var message = Eclo.nanoFramework.SIM800H.SIM800H.SmsProvider.ReadTextMessage(messageIndex, true);
 
-            Console.WriteLine("******************************************************");
-            Console.WriteLine("Message from " + message.TelephoneNumber);
-            Console.WriteLine("Received @ " + message.Timestamp);
-            Console.WriteLine("«" + message.Text + "»");
-            Console.WriteLine("******************************************************");
+            Debug.WriteLine("******************************************************");
+            Debug.WriteLine("Message from " + message.TelephoneNumber);
+            Debug.WriteLine("Received @ " + message.Timestamp);
+            Debug.WriteLine("«" + message.Text + "»");
+            Debug.WriteLine("******************************************************");
         }
 
         private static void SIM800H_WarningConditionTriggered(WarningCondition warningCondition)
         {
             // get friendly string for this warning condition
-            Console.WriteLine(SamplesExtensions.GetWarningDescription(warningCondition));
+            Debug.WriteLine(SamplesExtensions.GetWarningDescription(warningCondition));
         }
 
         private static void SIM800H_GsmNetworkRegistrationChanged(NetworkRegistrationState networkState)
         {
-            Console.WriteLine(networkState.GetDescription("GSM"));
+            Debug.WriteLine(networkState.GetDescription("GSM"));
         }
     }
 }

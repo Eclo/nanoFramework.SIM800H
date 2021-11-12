@@ -29,17 +29,17 @@ namespace MMS_Send_Sync
             InitializeSIM800H();
 
             // powering on module
-            Console.WriteLine("Power on sequence starting");
+            Debug.WriteLine("Power on sequence starting");
             var powerOnResult = Eclo.nanoFramework.SIM800H.SIM800H.PowerOnAsync().End();
 
             if (powerOnResult == PowerStatus.On)
             {
-                Console.WriteLine("... Power on sequence completed...");
+                Debug.WriteLine("... Power on sequence completed...");
             }
             else
             {
                 // something went wrong...
-                Console.WriteLine("### Power on sequence FAILED ###");
+                Debug.WriteLine("### Power on sequence FAILED ###");
             }
 
             // wait for GPRS network registration
@@ -53,11 +53,11 @@ namespace MMS_Send_Sync
             if (connectGprsResult == ConnectGprsResult.Open ||
                 connectGprsResult == ConnectGprsResult.AlreadyOpen)
             {
-                Console.WriteLine("... GPRS connected ...");
+                Debug.WriteLine("... GPRS connected ...");
             }
             else
             {
-                Console.WriteLine("### failed to connect to GPRS ###");
+                Debug.WriteLine("### failed to connect to GPRS ###");
             }
 
 
@@ -67,11 +67,11 @@ namespace MMS_Send_Sync
             if (openBearerResult == OpenBearerResult.Open ||
                 openBearerResult == OpenBearerResult.AlreadyOpen)
             {
-                Console.WriteLine("... IP apps bearer opened...");
+                Debug.WriteLine("... IP apps bearer opened...");
             }
             else
             {
-                Console.WriteLine("### failed to open IP apps bearer ###");
+                Debug.WriteLine("### failed to open IP apps bearer ###");
             }
 
 
@@ -81,11 +81,11 @@ namespace MMS_Send_Sync
             if (openBearerResult == OpenBearerResult.Open ||
                 openBearerResult == OpenBearerResult.AlreadyOpen)
             {
-                Console.WriteLine("... MMS bearer opened...");
+                Debug.WriteLine("... MMS bearer opened...");
             }
             else
             {
-                Console.WriteLine("### failed to open MMS bearer ###");
+                Debug.WriteLine("### failed to open MMS bearer ###");
             }
 
             // set MMS configuration
@@ -101,33 +101,33 @@ namespace MMS_Send_Sync
             // check result
             if (mmsSendResult)
             {
-                Console.WriteLine("MMS sent successfully!");
+                Debug.WriteLine("MMS sent successfully!");
             }
             else
             {
-                Console.WriteLine("### Error sending MMS.");
+                Debug.WriteLine("### Error sending MMS.");
             }
 
             // just because....
             Thread.Sleep(5000);
 
             // power off module
-            Console.WriteLine("Power off module");
+            Debug.WriteLine("Power off module");
             Eclo.nanoFramework.SIM800H.SIM800H.PowerOff();
 
             // powering on module again
-            Console.WriteLine("Power on sequence starting");
+            Debug.WriteLine("Power on sequence starting");
             powerOnResult = Eclo.nanoFramework.SIM800H.SIM800H.PowerOnAsync().End();
 
             if (powerOnResult == PowerStatus.On)
             {
-                Console.WriteLine("... Power on sequence completed...");
+                Debug.WriteLine("... Power on sequence completed...");
 
             }
             else
             {
                 // something went wrong...
-                Console.WriteLine("### Power on sequence FAILED ###");
+                Debug.WriteLine("### Power on sequence FAILED ###");
             }
 
             // wait for GPRS network registration
@@ -141,11 +141,11 @@ namespace MMS_Send_Sync
             if (connectGprsResult == ConnectGprsResult.Open ||
                 connectGprsResult == ConnectGprsResult.AlreadyOpen)
             {
-                Console.WriteLine("... GPRS connected ...");
+                Debug.WriteLine("... GPRS connected ...");
             }
             else
             {
-                Console.WriteLine("### failed to connect GPRS ###");
+                Debug.WriteLine("### failed to connect GPRS ###");
             }
 
             // open MMS bearer
@@ -154,11 +154,11 @@ namespace MMS_Send_Sync
             if (openBearerResult == OpenBearerResult.Open ||
                 openBearerResult == OpenBearerResult.AlreadyOpen)
             {
-                Console.WriteLine("... IP apps bearer opened...");
+                Debug.WriteLine("... IP apps bearer opened...");
             }
             else
             {
-                Console.WriteLine("### failed to open IP apps bearer ###");
+                Debug.WriteLine("### failed to open IP apps bearer ###");
             }
 
 
@@ -168,11 +168,11 @@ namespace MMS_Send_Sync
             if (openBearerResult == OpenBearerResult.Open ||
                 openBearerResult == OpenBearerResult.AlreadyOpen)
             {
-                Console.WriteLine("... MMS bearer opened...");
+                Debug.WriteLine("... MMS bearer opened...");
             }
             else
             {
-                Console.WriteLine("### failed to open MMS bearer ###");
+                Debug.WriteLine("### failed to open MMS bearer ###");
             }
 
             // build and send MMS message 2
@@ -183,11 +183,11 @@ namespace MMS_Send_Sync
             // check result
             if (mmsSendResult)
             {
-                Console.WriteLine("MMS sent successfully!");
+                Debug.WriteLine("MMS sent successfully!");
             }
             else
             {
-                Console.WriteLine("### Error sending MMS.");
+                Debug.WriteLine("### Error sending MMS.");
             }
 
             // powering off module
@@ -212,7 +212,7 @@ namespace MMS_Send_Sync
             GpioPin sim800PowerKey = GpioController.GetDefault().OpenPin(0 * 1 + 10, GpioSharingMode.Exclusive);
             sim800PowerKey.SetDriveMode(GpioPinDriveMode.Output);
 
-            Console.WriteLine("... Configuring SIM800H ...");
+            Debug.WriteLine("... Configuring SIM800H ...");
 
             // configure SIM800H device
             Eclo.nanoFramework.SIM800H.SIM800H.Configure(sim800PowerKey, ref _serialDevice);
@@ -237,17 +237,17 @@ namespace MMS_Send_Sync
         private static void SIM800H_WarningConditionTriggered(WarningCondition warningCondition)
         {
             // get friendly string for this warning condition
-            Console.WriteLine(SamplesExtensions.GetWarningDescription(warningCondition));
+            Debug.WriteLine(SamplesExtensions.GetWarningDescription(warningCondition));
         }
 
         private static void SIM800H_GprsNetworkRegistrationChanged(NetworkRegistrationState networkState)
         {
-            Console.WriteLine(networkState.GetDescription("GPRS"));
+            Debug.WriteLine(networkState.GetDescription("GPRS"));
         }
 
         private static void SIM800H_GsmNetworkRegistrationChanged(NetworkRegistrationState networkState)
         {
-            Console.WriteLine(networkState.GetDescription("GSM"));
+            Debug.WriteLine(networkState.GetDescription("GSM"));
         }
     }
 }

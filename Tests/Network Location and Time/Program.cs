@@ -23,7 +23,7 @@ namespace Network_Location_and_Time
                 Thread.Sleep(5000);
 
                 // output signal RSSI
-                Console.WriteLine("Network signal strength is " + Eclo.nanoFramework.SIM800H.SIM800H.RetrieveSignalStrength().GetSignalStrengthDescription());
+                Debug.WriteLine("Network signal strength is " + Eclo.nanoFramework.SIM800H.SIM800H.RetrieveSignalStrength().GetSignalStrengthDescription());
             };
         }
 
@@ -39,7 +39,7 @@ namespace Network_Location_and_Time
             GpioPin sim800PowerKey = GpioController.GetDefault().OpenPin(0 * 1 + 10, GpioSharingMode.Exclusive);
             sim800PowerKey.SetDriveMode(GpioPinDriveMode.Output);
 
-            Console.WriteLine("... Configuring SIM800H ...");
+            Debug.WriteLine("... Configuring SIM800H ...");
 
             // configure SIM800H device
             Eclo.nanoFramework.SIM800H.SIM800H.Configure(sim800PowerKey, ref _serialDevice);
@@ -67,22 +67,22 @@ namespace Network_Location_and_Time
                 // check result
                 if (((PowerOnAsyncResult)ar).Result == PowerStatus.On)
                 {
-                    Console.WriteLine("... Power on sequence completed...");
+                    Debug.WriteLine("... Power on sequence completed...");
                 }
                 else
                 {
                     // something went wrong...
-                    Console.WriteLine("### Power on sequence FAILED ###");
+                    Debug.WriteLine("### Power on sequence FAILED ###");
                 }
             }
             );
 
-            Console.WriteLine("... Power on sequence started ...");
+            Debug.WriteLine("... Power on sequence started ...");
         }
 
         private static void SIM800H_GprsNetworkRegistrationChanged(NetworkRegistrationState networkState)
         {
-            Console.WriteLine(networkState.GetDescription("GPRS"));
+            Debug.WriteLine(networkState.GetDescription("GPRS"));
 
             if (networkState == NetworkRegistrationState.Registered)
             {
@@ -116,13 +116,13 @@ namespace Network_Location_and_Time
                     if (lt.ErrorCode == 0)
                     {
                         // request successful
-                        Console.WriteLine("Network time " + lt.DateTime.ToString() + " GMT");
-                        Console.WriteLine("Location http://www.bing.com/maps/?v=2&form=LMLTSN&cp=" + lt.Latitude.ToString() + "~" + lt.Longitude.ToString() + "&lvl=17&sty=r&encType=1");
+                        Debug.WriteLine("Network time " + lt.DateTime.ToString() + " GMT");
+                        Debug.WriteLine("Location http://www.bing.com/maps/?v=2&form=LMLTSN&cp=" + lt.Latitude.ToString() + "~" + lt.Longitude.ToString() + "&lvl=17&sty=r&encType=1");
                     }
                     else
                     {
                         // failed to retrieve time and location from network
-                        Console.WriteLine("### Failed to retrieve time and location from network. Error code: " + lt.ErrorCode.ToString() + " ###");
+                        Debug.WriteLine("### Failed to retrieve time and location from network. Error code: " + lt.ErrorCode.ToString() + " ###");
                     }
 
                 }).Start();
@@ -132,12 +132,12 @@ namespace Network_Location_and_Time
         private static void SIM800H_WarningConditionTriggered(WarningCondition warningCondition)
         {
             // get friendly string for this warning condition
-            Console.WriteLine(SamplesExtensions.GetWarningDescription(warningCondition));
+            Debug.WriteLine(SamplesExtensions.GetWarningDescription(warningCondition));
         }
 
         private static void SIM800H_GsmNetworkRegistrationChanged(NetworkRegistrationState networkState)
         {
-            Console.WriteLine(networkState.GetDescription("GSM"));
+            Debug.WriteLine(networkState.GetDescription("GSM"));
         }
     }
 }

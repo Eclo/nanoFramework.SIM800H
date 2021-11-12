@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
@@ -26,7 +27,7 @@ namespace Eclo.nanoFramework.SIM800H
                 if (calRet.Result != ReturnedState.OK)
                 {
                     // TBD
-                    //Console.WriteLine("** failed to set GPRS prefs ***");
+                    //Debug.WriteLine("** failed to set GPRS prefs ***");
                 }
             }
 
@@ -55,7 +56,7 @@ namespace Eclo.nanoFramework.SIM800H
                     if (calRet.Result != ReturnedState.OK)
                     {
                         //  TBD
-                        //Console.WriteLine("** failed to set APN config for sockets ***");
+                        //Debug.WriteLine("** failed to set APN config for sockets ***");
                     }
                 }
 
@@ -73,7 +74,7 @@ namespace Eclo.nanoFramework.SIM800H
             else
             {
                 // no APN config, warn user about this 
-                Console.WriteLine("No APN configuration or invalid");
+                Debug.WriteLine("No APN configuration or invalid");
             }
 
             // set APN for MMS
@@ -92,7 +93,7 @@ namespace Eclo.nanoFramework.SIM800H
             else
             {
                 // no APN config, warn user about this 
-                Console.WriteLine("No MMS APN configuration or invalid");
+                Debug.WriteLine("No MMS APN configuration or invalid");
             }
         }
 
@@ -188,7 +189,7 @@ namespace Eclo.nanoFramework.SIM800H
         /// <returns></returns>
         public ConnectionStatus CheckConnectionStatus(int connection)
         {
-            //Console.WriteLine("Checking status for connection " + connection);
+            //Debug.WriteLine("Checking status for connection " + connection);
 
             AtCommandResult calRet = SIM800H.Instance.SendATCommandAndWaitForResponse(Prompts.AT + Prompts.CIPSTATUS + "=" + connection, 5000);
             if (calRet.Result == Eclo.nanoFramework.SIM800H.ReturnedState.OK)
@@ -230,7 +231,7 @@ namespace Eclo.nanoFramework.SIM800H
             }
             else
             {
-                //Console.WriteLine("No valid response");
+                //Debug.WriteLine("No valid response");
             }
 
             return ConnectionStatus.Unknown; ;

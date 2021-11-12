@@ -1364,7 +1364,7 @@ namespace Eclo.nanoFramework.SIM800H
                     if (!_externalLock)
                     {
                         _externalLock = true;
-                        //Console.WriteLine(">>>");
+                        //Debug.WriteLine(">>>");
                         return;
                     }
                 }
@@ -1382,7 +1382,7 @@ namespace Eclo.nanoFramework.SIM800H
             lock (_lock)
             {
                 _externalLock = false;
-                //Console.WriteLine("<<<");
+                //Debug.WriteLine("<<<");
             }
         }
 
@@ -1945,7 +1945,7 @@ namespace Eclo.nanoFramework.SIM800H
                         {
                             _ipAddress = "";
 
-                            //Console.WriteLine("CGREG ERROR");
+                            //Debug.WriteLine("CGREG ERROR");
                         }
                     }
 
@@ -1973,7 +1973,7 @@ namespace Eclo.nanoFramework.SIM800H
                         }
                         catch (Exception)
                         {
-                            //Console.WriteLine("CMTI retrieve ERROR");
+                            //Debug.WriteLine("CMTI retrieve ERROR");
                         }
                     }
 
@@ -2009,7 +2009,7 @@ namespace Eclo.nanoFramework.SIM800H
                                     break;
 
                                 default:
-                                    //Console.WriteLine("HTTPACTION unknown action code: " + tInt);
+                                    //Debug.WriteLine("HTTPACTION unknown action code: " + tInt);
                                     // done here
                                     continue;
                             }
@@ -2035,7 +2035,7 @@ namespace Eclo.nanoFramework.SIM800H
                         }
                         catch (Exception)
                         {
-                            //Console.WriteLine("HTTPACTION retrieve ERROR");
+                            //Debug.WriteLine("HTTPACTION retrieve ERROR");
                         }
                     }
 
@@ -2057,7 +2057,7 @@ namespace Eclo.nanoFramework.SIM800H
                         }
                         catch (Exception)
                         {
-                            //Console.WriteLine("+CMGS retrieve ERROR");
+                            //Debug.WriteLine("+CMGS retrieve ERROR");
                         }
                     }
 
@@ -2110,7 +2110,7 @@ namespace Eclo.nanoFramework.SIM800H
                         }
                         catch (Exception)
                         {
-                            //Console.WriteLine("+CDS retrieve ERROR");
+                            //Debug.WriteLine("+CDS retrieve ERROR");
                         }
                     }
 
@@ -2227,7 +2227,7 @@ namespace Eclo.nanoFramework.SIM800H
                         }
                         catch (Exception)
                         {
-                            //Console.WriteLine("CSMINS retrieve ERROR");
+                            //Debug.WriteLine("CSMINS retrieve ERROR");
                         }
                     }
 
@@ -2288,7 +2288,7 @@ namespace Eclo.nanoFramework.SIM800H
                         }
                         catch (Exception)
                         {
-                            //Console.WriteLine("CMTE retrieve ERROR");
+                            //Debug.WriteLine("CMTE retrieve ERROR");
                         }
                     }
 
@@ -2409,7 +2409,7 @@ namespace Eclo.nanoFramework.SIM800H
                         }
                         catch (Exception)
                         {
-                            //Console.WriteLine("RECEIVE prompt retrieve ERROR");
+                            //Debug.WriteLine("RECEIVE prompt retrieve ERROR");
                         }
                     }
 
@@ -2455,7 +2455,7 @@ namespace Eclo.nanoFramework.SIM800H
                         }
                         catch (Exception)
                         {
-                            //Console.WriteLine("+CMGS retrieve ERROR");
+                            //Debug.WriteLine("+CMGS retrieve ERROR");
                         }
                     }
 
@@ -2893,7 +2893,7 @@ namespace Eclo.nanoFramework.SIM800H
                 }
                 catch (Exception)
                 {
-                    //Console.WriteLine("Signal Strength Error");
+                    //Debug.WriteLine("Signal Strength Error");
                 }
                 finally
                 {
@@ -3238,7 +3238,7 @@ namespace Eclo.nanoFramework.SIM800H
                     }
                     catch (Exception)
                     {
-                        //Console.WriteLine("CSMINS retrieve ERROR");
+                        //Debug.WriteLine("CSMINS retrieve ERROR");
                     }
                 }
 

@@ -26,7 +26,7 @@ namespace HTTP_Requests
                 Thread.Sleep(5000);
 
                 // output signal RSSI
-                Console.WriteLine("Network signal strength is " + Eclo.nanoFramework.SIM800H.SIM800H.RetrieveSignalStrength().GetSignalStrengthDescription());
+                Debug.WriteLine("Network signal strength is " + Eclo.nanoFramework.SIM800H.SIM800H.RetrieveSignalStrength().GetSignalStrengthDescription());
             };
         }
 
@@ -42,7 +42,7 @@ namespace HTTP_Requests
             GpioPin sim800PowerKey = GpioController.GetDefault().OpenPin(0 * 1 + 10, GpioSharingMode.Exclusive);
             sim800PowerKey.SetDriveMode(GpioPinDriveMode.Output);
 
-            Console.WriteLine("... Configuring SIM800H ...");
+            Debug.WriteLine("... Configuring SIM800H ...");
 
             // configure SIM800H device
             Eclo.nanoFramework.SIM800H.SIM800H.Configure(sim800PowerKey, ref _serialDevice);
@@ -68,12 +68,12 @@ namespace HTTP_Requests
             // in this example we are setting up a callback on a separate method
             Eclo.nanoFramework.SIM800H.SIM800H.PowerOnAsync(PowerOnCompleted);
 
-            Console.WriteLine("... Power on sequence started ...");
+            Debug.WriteLine("... Power on sequence started ...");
         }
 
         static void SIM800H_PowerStatusChanged(PowerStatus powerStatus)
         {
-            Console.WriteLine("Power status is: " + powerStatus.GetDescription());
+            Debug.WriteLine("Power status is: " + powerStatus.GetDescription());
         }
 
         private static void PowerOnCompleted(IAsyncResult result)
@@ -81,23 +81,23 @@ namespace HTTP_Requests
             // check result
             if (((PowerOnAsyncResult)result).Result == PowerStatus.On)
             {
-                Console.WriteLine("... Power on sequence completed...");
+                Debug.WriteLine("... Power on sequence completed...");
             }
             else
             {
                 // something went wrong...
-                Console.WriteLine("### Power on sequence FAILED ###");
+                Debug.WriteLine("### Power on sequence FAILED ###");
             }
         }
 
         private static void SIM800H_GsmNetworkRegistrationChanged(NetworkRegistrationState networkState)
         {
-            Console.WriteLine(networkState.GetDescription("GSM"));
+            Debug.WriteLine(networkState.GetDescription("GSM"));
         }
 
         private static void SIM800H_GprsNetworkRegistrationChanged(NetworkRegistrationState networkState)
         {
-            Console.WriteLine(networkState.GetDescription("GPRS"));
+            Debug.WriteLine(networkState.GetDescription("GPRS"));
 
             if (networkState == NetworkRegistrationState.Registered)
             {
@@ -135,13 +135,13 @@ namespace HTTP_Requests
         private static void SIM800H_WarningConditionTriggered(WarningCondition warningCondition)
         {
             // get friendly string for this warning condition
-            Console.WriteLine(SamplesExtensions.GetWarningDescription(warningCondition));
+            Debug.WriteLine(SamplesExtensions.GetWarningDescription(warningCondition));
         }
 
         static void UploadDataToChannel()
         {
             // download weather data for Lisbon (Portugal) from Open Weather Data
-            Console.WriteLine("... uploading data to channel ...");
+            Debug.WriteLine("... uploading data to channel ...");
 
 
             ///////////////////////////////////////////////////////
@@ -163,9 +163,9 @@ namespace HTTP_Requests
                 // perform the request and get the response
                 using (var res = webRequest.GetResponse() as HttpWebResponse)
                 {
-                    Console.WriteLine("******************************************************");
-                    Console.WriteLine(res.BodyData);
-                    Console.WriteLine("******************************************************");
+                    Debug.WriteLine("******************************************************");
+                    Debug.WriteLine(res.BodyData);
+                    Debug.WriteLine("******************************************************");
                 }
             }
 
@@ -206,12 +206,12 @@ namespace HTTP_Requests
                                 // check if the HTTP request was successful
                                 if (response.RequestSuccessful)
                                 {
-                                    Console.WriteLine("******************************************************");
+                                    Debug.WriteLine("******************************************************");
 
                                     // grab body data as a string directly from the response
-                                    Console.WriteLine(response.BodyData);
+                                    Debug.WriteLine(response.BodyData);
 
-                                    Console.WriteLine("******************************************************");
+                                    Debug.WriteLine("******************************************************");
                                 }
                             });
                         }
@@ -255,12 +255,12 @@ namespace HTTP_Requests
                                 // check if the HTTP request was successful
                                 if (response.RequestSuccessful)
                                 {
-                                    Console.WriteLine("******************************************************");
+                                    Debug.WriteLine("******************************************************");
 
                                     // grab body data as a string directly from the response
-                                    Console.WriteLine(response.BodyData);
+                                    Debug.WriteLine(response.BodyData);
 
-                                    Console.WriteLine("******************************************************");
+                                    Debug.WriteLine("******************************************************");
                                 }
                             });
                         }
@@ -314,14 +314,14 @@ namespace HTTP_Requests
                 // perform the request and get the response
                 using (var res = webRequest.GetResponse() as HttpWebResponse)
                 {
-                    Console.WriteLine("STATUS FROM SERVER:" + res.StatusCode.ToString());
+                    Debug.WriteLine("STATUS FROM SERVER:" + res.StatusCode.ToString());
                     // read body data from response stream
                     using (var stream = res.GetResponseStream())
                     {
                         IBuffer receivedBody = new ByteBuffer((uint)stream.Length);
                         stream.Read(receivedBody, (uint)stream.Length, InputStreamOptions.Partial);
                         string respString = new string(Encoding.UTF8.GetChars(((ByteBuffer)receivedBody).Data));
-                        Console.WriteLine("RETURN FROM SERVER:" + respString);
+                        Debug.WriteLine("RETURN FROM SERVER:" + respString);
                         stream.Dispose();
 
                     }
@@ -354,12 +354,12 @@ namespace HTTP_Requests
                                 // check if the HTTP request was successful
                                 if (response.RequestSuccessful)
                                 {
-                                    Console.WriteLine("*********************** BODY ************************");
+                                    Debug.WriteLine("*********************** BODY ************************");
 
                                     // grab body data as a string directly from the response
-                                    Console.WriteLine(response.BodyData);
+                                    Debug.WriteLine(response.BodyData);
 
-                                    Console.WriteLine("******************************************************");
+                                    Debug.WriteLine("******************************************************");
 
                                     outcome = true;
                                     are.Set();

@@ -23,7 +23,7 @@ namespace SMS_batch_sending
                 Thread.Sleep(5000);
 
                 // output signal RSSI
-                Console.WriteLine("Network signal strength is " + Eclo.nanoFramework.SIM800H.SIM800H.RetrieveSignalStrength().GetSignalStrengthDescription());
+                Debug.WriteLine("Network signal strength is " + Eclo.nanoFramework.SIM800H.SIM800H.RetrieveSignalStrength().GetSignalStrengthDescription());
             };
         }
 
@@ -39,7 +39,7 @@ namespace SMS_batch_sending
             GpioPin sim800PowerKey = GpioController.GetDefault().OpenPin(0 * 1 + 10, GpioSharingMode.Exclusive);
             sim800PowerKey.SetDriveMode(GpioPinDriveMode.Output);
 
-            Console.WriteLine("... Configuring SIM800H ...");
+            Debug.WriteLine("... Configuring SIM800H ...");
 
             // configure SIM800H device
             Eclo.nanoFramework.SIM800H.SIM800H.Configure(sim800PowerKey, ref _serialDevice);
@@ -60,22 +60,22 @@ namespace SMS_batch_sending
                 // check result
                 if (((PowerOnAsyncResult)ar).Result == PowerStatus.On)
                 {
-                    Console.WriteLine("... Power on sequence completed...");
+                    Debug.WriteLine("... Power on sequence completed...");
                 }
                 else
                 {
                     // something went wrong...
-                    Console.WriteLine("### Power on sequence FAILED ###");
+                    Debug.WriteLine("### Power on sequence FAILED ###");
                 }
             }
             );
 
-            Console.WriteLine("... Power on sequence started ...");
+            Debug.WriteLine("... Power on sequence started ...");
         }
 
         private static void SIM800H_SmsReady()
         {
-            Console.WriteLine("... SIM800H SMS engine is ready ...");
+            Debug.WriteLine("... SIM800H SMS engine is ready ...");
 
             // launch a new thread to send 5 SMSes with 5 seconds interval
             int smsToSend = 1;
@@ -98,11 +98,11 @@ namespace SMS_batch_sending
                         if (((SendTextMessageAsyncResult)ar).Reference == -1)
                         {
                             // something went wrong...
-                            Console.WriteLine("### FAILED sending SMS " + sendCount + " ###");
+                            Debug.WriteLine("### FAILED sending SMS " + sendCount + " ###");
                         }
                         else
                         {
-                            Console.WriteLine("... SMS " + sendCount + " sent ...");
+                            Debug.WriteLine("... SMS " + sendCount + " sent ...");
                         }
                     }
                     );
@@ -120,12 +120,12 @@ namespace SMS_batch_sending
         private static void SIM800H_WarningConditionTriggered(WarningCondition warningCondition)
         {
             // get friendly string for this warning condition
-            Console.WriteLine(SamplesExtensions.GetWarningDescription(warningCondition));
+            Debug.WriteLine(SamplesExtensions.GetWarningDescription(warningCondition));
         }
 
         private static void SIM800H_GsmNetworkRegistrationChanged(NetworkRegistrationState networkState)
         {
-            Console.WriteLine(networkState.GetDescription("GSM"));
+            Debug.WriteLine(networkState.GetDescription("GSM"));
         }
     }
 }
