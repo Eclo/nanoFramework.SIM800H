@@ -1,3 +1,8 @@
+////
+// Copyright (c) Eclo Solutions
+// See LICENSE file in the project root for full license information.
+////
+
 using Eclo.nF.Extensions;
 using System;
 using System.Runtime.CompilerServices;

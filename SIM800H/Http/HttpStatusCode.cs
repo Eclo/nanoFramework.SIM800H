@@ -1,3 +1,8 @@
+////
+// Copyright (c) Eclo Solutions
+// See LICENSE file in the project root for full license information.
+////
+
 namespace Eclo.nanoFramework.SIM800H
 {
     // Any int can be cast to a HttpStatusCode to allow checking for non http1.1

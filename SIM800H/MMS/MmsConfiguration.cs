@@ -1,4 +1,9 @@
-﻿using System;
+﻿////
+// Copyright (c) Eclo Solutions
+// See LICENSE file in the project root for full license information.
+////
+
+using System;
 
 namespace Eclo.nanoFramework.SIM800H
 {

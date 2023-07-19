@@ -1,4 +1,9 @@
-﻿using Eclo.nanoFramework.SIM800H;
+﻿////
+// Copyright (c) Eclo Solutions
+// See LICENSE file in the project root for full license information.
+////
+
+using Eclo.nanoFramework.SIM800H;
 using SIM800HSamples;
 using System;
 using System.Threading;
