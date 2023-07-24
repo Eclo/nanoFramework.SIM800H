@@ -6,10 +6,12 @@
 using Eclo.nF.Extensions;
 using System;
 using System.Collections;
+using System.Device.Gpio;
+using System.Diagnostics;
+using System.IO;
+using System.IO.Ports;
 using System.Text;
 using System.Threading;
-using Windows.Devices.Gpio;
-using Windows.Devices.SerialCommunication;
 
 namespace Eclo.nanoFramework.SIM800H
 {
@@ -81,9 +83,9 @@ namespace Eclo.nanoFramework.SIM800H
         public static void PowerOff()
         {
             // hardware power down
-            Instance._powerKey.Write(GpioPinValue.High);
+            Instance._powerKey.Write(PinValue.High);
             Thread.Sleep(1200);
-            Instance._powerKey.Write(GpioPinValue.Low);
+            Instance._powerKey.Write(PinValue.Low);
             Thread.Sleep(500);
 
             // power down command
@@ -152,9 +154,9 @@ namespace Eclo.nanoFramework.SIM800H
         #region Private Attributes
 
         // Serial line that sends commands to the GSM module
-        internal SerialDevice _serialDevice;
+        internal SerialPort _serialDevice;
         // Power line to the GSM module
-        internal Windows.Devices.Gpio.GpioPin _powerKey;
+        internal System.Device.Gpio.GpioPin _powerKey;
 
         // Serial reader thread
         internal Thread readerThread;
@@ -549,7 +551,7 @@ namespace Eclo.nanoFramework.SIM800H
         /// </summary>
         /// <param name="powerKey">The I/O signal that will be used to control the device's power key</param>
         /// <param name="serialPort">The serial port that will be used to comunicate with the device</param>
-        public static void Configure(Windows.Devices.Gpio.GpioPin powerKey, ref SerialDevice serialPort)
+        public static void Configure(GpioPin powerKey, ref SerialPort serialPort)
         {
             if (Instance._initCompleted)
             {
@@ -574,10 +576,10 @@ namespace Eclo.nanoFramework.SIM800H
             // serial port settings
             //Instance._serialDevice.Close();
             Instance._serialDevice.BaudRate = 115200; // possible values:  19200, 38400, 57600 and 115200 
-            Instance._serialDevice.Parity = SerialParity.None;
-            Instance._serialDevice.StopBits = SerialStopBitCount.One;
+            Instance._serialDevice.Parity = Parity.None;
+            Instance._serialDevice.StopBits = StopBits.One;
             Instance._serialDevice.DataBits = 8;
-            Instance._serialDevice.Handshake = SerialHandshake.None;
+            Instance._serialDevice.Handshake = Handshake.None;
 
             // open serial
             //Instance._serialDevice.Open();
@@ -593,7 +595,7 @@ namespace Eclo.nanoFramework.SIM800H
 
             // setup event handler for receive buffer
             Instance._serialDevice.DataReceived += Instance._serialDevice_DataReceived;
-
+            Instance._serialDevice.Open();
             // flag that initialization was completed
             Instance._initCompleted = true;
         }
@@ -628,9 +630,9 @@ namespace Eclo.nanoFramework.SIM800H
 
             try
             {
-                using (var inputDataReader = new Windows.Storage.Streams.DataReader(_serialDevice.InputStream))
+                using (var inputDataReader = new StreamReader(_serialDevice.BaseStream))
                 {
-                    inputDataReader.InputStreamOptions = Windows.Storage.Streams.InputStreamOptions.Partial;
+                    ////inputDataReader.InputStreamOptions = Windows.Storage.Streams.InputStreamOptions.Partial;
 
                     while (_serialDevice.BytesToRead > 0)
                     {
@@ -662,7 +664,7 @@ namespace Eclo.nanoFramework.SIM800H
 
 
                         // read next byte in buffer
-                        buffer[bufferOffset] = (char)_serialDevice.ReadByte(inputDataReader);
+                        buffer[bufferOffset] = (char)_serialDevice.ReadByte(); //// (inputDataReader);
 
                         //if (buffer[bufferOffset] == '>')
                         //{
@@ -722,7 +724,7 @@ namespace Eclo.nanoFramework.SIM800H
 
                                 while (_serialDevice.BytesToRead > 0 && dataToRead > 0)
                                 {
-                                    buffer[bufferOffset] = (char)_serialDevice.ReadByte(inputDataReader);
+                                    buffer[bufferOffset] = (char)_serialDevice.ReadByte(); //// (inputDataReader);
 
 #if DEBUG_SERIAL_RECEIVE
                                 ////////////////////
@@ -826,7 +828,7 @@ namespace Eclo.nanoFramework.SIM800H
                                         bytesToRead = dataToRead;
                                     }
 
-                                    int readBytes = _serialDevice.ReadChars(inputDataReader, ref buffer, bufferOffset, bytesToRead);
+                                    int readBytes = inputDataReader.Read(buffer, bufferOffset, bytesToRead); ////_serialDevice.ReadChars(inputDataReader, ref buffer, bufferOffset, bytesToRead);
 
                                     // adjust offset
                                     bufferOffset += readBytes;
@@ -859,7 +861,7 @@ namespace Eclo.nanoFramework.SIM800H
                                 // if receiving HTTP data, trim the two initial chars from the prompt
                                 //responseQueue.Add(new string(buffer, (receivingHttpData ? 2 : 0), bufferOffset - 1 - 2).Trim(new char[] { '\n', '\r' }).Trim(new char[] { '\n', '\r' }));
                                 responseQueue.Add(new string(buffer, 0, bufferOffset).Trim(new char[] { '\n', '\r' }).Trim(new char[] { '\n', '\r' }));
-
+                                
                                 if (waitingResponse)
                                 {
                                     // signal response received

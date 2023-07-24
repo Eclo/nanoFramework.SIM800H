@@ -4,7 +4,6 @@
 ////
 
 using System;
-using Windows.Storage.Streams;
 
 namespace Eclo.nanoFramework.SIM800H.Http
 {

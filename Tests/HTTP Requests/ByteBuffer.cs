@@ -3,8 +3,8 @@
 // See LICENSE file in the project root for full license information.
 ////
 
+using Eclo.nanoFramework.SIM800H;
 using System;
-using Windows.Storage.Streams;
 
 namespace HTTP_Requests
 {

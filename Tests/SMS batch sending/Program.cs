@@ -6,15 +6,18 @@
 using Eclo.nanoFramework.SIM800H;
 using SIM800HSamples;
 using System;
+using System.IO.Ports;
 using System.Threading;
-using Windows.Devices.Gpio;
-using Windows.Devices.SerialCommunication;
+using System.Device.Gpio;
+using System.Diagnostics;
+using nanoFramework.Hardware.Esp32;
 
 namespace SMS_batch_sending
 {
     public class Program
     {
-        static SerialDevice _serialDevice;
+        // IMPORTANT: this sample has been adjusted to work with ESP32.
+        static SerialPort _serialDevice;
 
         private static string smsDestination = "<destination phone number>";
 
@@ -37,12 +40,14 @@ namespace SMS_batch_sending
             // initialization of the module is very simple 
             // we just need to pass a serial port and an output signal to control the "power key" signal
 
+            Configuration.SetPinFunction(33, DeviceFunction.COM2_RX);
+            Configuration.SetPinFunction(32, DeviceFunction.COM2_TX);
+
             // open COM
-            _serialDevice = SerialDevice.FromId("COM2");
+            _serialDevice = new SerialPort("COM2");
 
             // SIM800H signal for "power key"
-            GpioPin sim800PowerKey = GpioController.GetDefault().OpenPin(0 * 1 + 10, GpioSharingMode.Exclusive);
-            sim800PowerKey.SetDriveMode(GpioPinDriveMode.Output);
+            GpioPin sim800PowerKey = new GpioController().OpenPin(15, PinMode.Output);
 
             Debug.WriteLine("... Configuring SIM800H ...");
 

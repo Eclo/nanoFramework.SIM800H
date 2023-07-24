@@ -8,15 +8,15 @@ using SIM800HSamples;
 using System;
 using System.Text;
 using System.Threading;
-using Windows.Devices.Gpio;
-using Windows.Devices.SerialCommunication;
-using Windows.Storage.Streams;
+using System.Device.Gpio;
+using System.IO.Ports;
+using System.Diagnostics;
 
 namespace HTTP_Requests
 {
     public class Program
     {
-        static SerialDevice _serialDevice;
+        static SerialPort _serialDevice;
 
         private const string APNConfigString = "net2.vodafone.pt|vodafone|vodafone";
         private const string thingsSpeakApiKey = "G4AVDUPU27ZC899X";
@@ -41,11 +41,10 @@ namespace HTTP_Requests
             // we just need to pass a serial port and an output signal to control the "power key" signal
 
             // open COM
-            _serialDevice = SerialDevice.FromId("COM2");
+            _serialDevice = new SerialPort("COM2");
 
             // SIM800H signal for "power key"
-            GpioPin sim800PowerKey = GpioController.GetDefault().OpenPin(0 * 1 + 10, GpioSharingMode.Exclusive);
-            sim800PowerKey.SetDriveMode(GpioPinDriveMode.Output);
+            GpioPin sim800PowerKey = new GpioController().OpenPin(0 * 1 + 10, PinMode.Output);
 
             Debug.WriteLine("... Configuring SIM800H ...");
 
