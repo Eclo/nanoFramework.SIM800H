@@ -8,7 +8,6 @@ using System.Collections;
 using System.Text;
 using System.Threading;
 using Eclo.nF.Extensions;
-using Windows.Storage.Streams;
 
 namespace Eclo.nanoFramework.SIM800H
 {
@@ -234,18 +233,18 @@ namespace Eclo.nanoFramework.SIM800H
                         {
                             // caller has filled request stream
 
-                            IBuffer buffer = (IBuffer)new Http.HttpByteBuffer(64);
+                            var buffer = new Http.HttpByteBuffer(64);
 
                             // reset position of stream to start reading from the beginning
-                            _httpRequest._requestStream.Seek(0);
+                            _httpRequest._requestStream.Seek(0, System.IO.SeekOrigin.Begin);
 
                             while (index < (int)_httpRequest._requestStream.Length)
                             {
                                 // adjust chunk size
-                                chunkSize = System.Math.Min(chunkSize, (int)_httpRequest._requestStream.Length - index);
+                                chunkSize = Math.Min(chunkSize, (int)_httpRequest._requestStream.Length - index);
 
                                 // read chunk
-                                _httpRequest._requestStream.Read(buffer, (uint)chunkSize, Windows.Storage.Streams.InputStreamOptions.Partial);
+                                _httpRequest._requestStream.Read(buffer.Data, 0, chunkSize); //, Windows.Storage.Streams.InputStreamOptions.Partial);
 
                                 // check if UART TX buffer needs to be flushed
                                 /*TBD                                if (SIM800H.Instance._serialDevice.BytesToWrite > chunkSize)

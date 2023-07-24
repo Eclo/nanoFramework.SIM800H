@@ -6,7 +6,6 @@
 using System;
 using System.IO;
 using System.Text;
-using Windows.Storage.Streams;
 
 namespace Eclo.nanoFramework.SIM800H
 {
@@ -61,14 +60,16 @@ namespace Eclo.nanoFramework.SIM800H
             this.Headers = new WebHeaderCollection();
         }
 
-        public InMemoryRandomAccessStream GetResponseStream()
+        public MemoryStream GetResponseStream()
         {
-            InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream();
-            if(this.BodyData != string.Empty)
-                stream.Write(Encoding.UTF8.GetBytes(this.BodyData));//, 0, this.BodyData.Length);
-
+            MemoryStream stream = new MemoryStream();
+            if (this.BodyData != string.Empty)
+            {
+                var buff = Encoding.UTF8.GetBytes(this.BodyData);
+                stream.Write(buff, 0, buff.Length);//, 0, this.BodyData.Length);
+            }
             // need to reset stream position to allow reading
-            stream.Seek(0);
+            stream.Seek(0, SeekOrigin.Begin);
 
             return stream;
         }

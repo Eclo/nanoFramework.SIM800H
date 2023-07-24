@@ -7,14 +7,15 @@ using Eclo.nanoFramework.SIM800H;
 using SIM800HSamples;
 using System;
 using System.Threading;
-using Windows.Devices.Gpio;
-using Windows.Devices.SerialCommunication;
+using System.Device.Gpio;
+using System.IO.Ports;
+using System.Diagnostics;
 
 namespace MMS_Send_Sync
 {
     public class Program
     {
-        static SerialDevice _serialDevice;
+        static SerialPort _serialDevice;
 
         // Vodafone PT config
         private const string mmsApnConfigString = "vas.vodafone.pt|vas|vas";
@@ -211,11 +212,10 @@ namespace MMS_Send_Sync
             // we just need to pass a serial port and an output signal to control the "power key" signal
 
             // open COM
-            _serialDevice = SerialDevice.FromId("COM2");
+            _serialDevice = new SerialPort("COM2");
 
             // SIM800H signal for "power key"
-            GpioPin sim800PowerKey = GpioController.GetDefault().OpenPin(0 * 1 + 10, GpioSharingMode.Exclusive);
-            sim800PowerKey.SetDriveMode(GpioPinDriveMode.Output);
+            GpioPin sim800PowerKey = new GpioController().OpenPin(0 * 1 + 10, PinMode.Output);
 
             Debug.WriteLine("... Configuring SIM800H ...");
 

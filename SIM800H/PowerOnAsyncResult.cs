@@ -4,10 +4,10 @@
 ////
 
 using System;
+using System.Device.Gpio;
+using System.Diagnostics;
 using System.Threading;
 using Eclo.nF.Extensions;
-using Windows.Devices.Gpio;
-using Windows.Storage.Streams;
 
 namespace Eclo.nanoFramework.SIM800H
 {
@@ -90,9 +90,9 @@ namespace Eclo.nanoFramework.SIM800H
 #if DEBUG__
                     Debug.WriteLine("Turning module on with power key");
 #endif
-                    SIM800H.Instance._powerKey.Write(GpioPinValue.High);
+                    SIM800H.Instance._powerKey.Write(PinValue.High);
                     Thread.Sleep(1100);
-                    SIM800H.Instance._powerKey.Write(GpioPinValue.Low);
+                    SIM800H.Instance._powerKey.Write(PinValue.Low);
                     Thread.Sleep(3100);
 
 #if DEBUG__
@@ -159,9 +159,9 @@ namespace Eclo.nanoFramework.SIM800H
 #if DEBUG__
                         //Debug.WriteLine("Turning module on with power key");
 #endif
-                        SIM800H.Instance._powerKey.Write(GpioPinValue.High);
+                        SIM800H.Instance._powerKey.Write(PinValue.High);
                         Thread.Sleep(1100);
-                        SIM800H.Instance._powerKey.Write(GpioPinValue.Low);
+                        SIM800H.Instance._powerKey.Write(PinValue.Low);
                         Thread.Sleep(3500);
 
                         // send AT directly to UART so this is not processed as command, waiting for reply, etc

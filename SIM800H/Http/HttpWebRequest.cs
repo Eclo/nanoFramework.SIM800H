@@ -5,7 +5,6 @@
 
 using System;
 using System.IO;
-using Windows.Storage.Streams;
 
 namespace Eclo.nanoFramework.SIM800H
 {
@@ -43,7 +42,7 @@ namespace Eclo.nanoFramework.SIM800H
         /// </summary>
         private Uri _originalUrl;
 
-        internal InMemoryRandomAccessStream _requestStream;
+        internal MemoryStream _requestStream;
 
         /// <summary>
         /// Data to be sent in the request.
@@ -173,11 +172,11 @@ namespace Eclo.nanoFramework.SIM800H
         /// </summary>
         /// <returns>A <b>Stream</b> to use to write request data.</returns>
         /// <remarks>Used for POST requests.</remarks>
-        public InMemoryRandomAccessStream GetRequestStream()
+        public MemoryStream GetRequestStream()
         {
             if (_requestStream == null)
             {
-                _requestStream = new InMemoryRandomAccessStream();
+                _requestStream = new MemoryStream();
             }
 
             return _requestStream;
